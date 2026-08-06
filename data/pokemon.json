@@ -1,0 +1,86 @@
+[
+  {
+    "pokedex_number": 1,
+    "name": "Bulbasaur",
+    "generation": 1,
+    "types": ["Grass", "Poison"],
+    "is_legendary": false
+  },
+  {
+    "pokedex_number": 4,
+    "name": "Charmander",
+    "generation": 1,
+    "types": ["Fire"],
+    "is_legendary": false
+  },
+  {
+    "pokedex_number": 7,
+    "name": "Squirtle",
+    "generation": 1,
+    "types": ["Water"],
+    "is_legendary": false
+  },
+  {
+    "pokedex_number": 25,
+    "name": "Pikachu",
+    "generation": 1,
+    "types": ["Electric"],
+    "is_legendary": false
+  },
+  {
+    "pokedex_number": 133,
+    "name": "Eevee",
+    "generation": 1,
+    "types": ["Normal"],
+    "is_legendary": false
+  },
+  {
+    "pokedex_number": 152,
+    "name": "Chikorita",
+    "generation": 2,
+    "types": ["Grass"],
+    "is_legendary": false
+  },
+  {
+    "pokedex_number": 155,
+    "name": "Cyndaquil",
+    "generation": 2,
+    "types": ["Fire"],
+    "is_legendary": false
+  },
+  {
+    "pokedex_number": 158,
+    "name": "Totodile",
+    "generation": 2,
+    "types": ["Water"],
+    "is_legendary": false
+  },
+  {
+    "pokedex_number": 252,
+    "name": "Treecko",
+    "generation": 3,
+    "types": ["Grass"],
+    "is_legendary": false
+  },
+  {
+    "pokedex_number": 255,
+    "name": "Torchic",
+    "generation": 3,
+    "types": ["Fire"],
+    "is_legendary": false
+  },
+  {
+    "pokedex_number": 258,
+    "name": "Mudkip",
+    "generation": 3,
+    "types": ["Water"],
+    "is_legendary": false
+  },
+  {
+    "pokedex_number": 150,
+    "name": "Mewtwo",
+    "generation": 1,
+    "types": ["Psychic"],
+    "is_legendary": true
+  }
+]
