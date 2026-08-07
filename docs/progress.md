@@ -107,3 +107,49 @@
 - Create a randomizer service.
 - Add a `GET /generate` endpoint that returns three unique random Pokémon.
 - Begin separating randomization rules from the API route.
+
+
+## Session 4 — August 7, 2026
+
+### Completed
+
+- Created `backend/app/services/randomizer_service.py`.
+- Added a `generate_pokemon()` function for selecting random Pokémon.
+- Configured the randomizer to generate 3 Pokémon by default.
+- Used `random.sample()` so generated Pokémon are unique within a result.
+- Added validation to prevent requesting more Pokémon than are available.
+- Kept the randomization logic separate from the FastAPI route.
+- Added a `GET /generate` endpoint.
+- Tested the randomizer service independently from FastAPI.
+- Verified that repeated calls generate different Pokémon.
+- Verified that `/generate` returns 3 unique Pokémon through the browser and FastAPI documentation.
+- Reviewed Python type hints and their similarities to Java types.
+
+### Concepts Reviewed
+
+- Separation between API logic and business logic.
+- Passing the Pokémon catalog into the randomizer rather than having the randomizer load its own data.
+- Python's `random.sample()` function.
+- Default function parameters.
+- Python type hints:
+  - `parameter: Type`
+  - `-> ReturnType`
+  - `list[Pokemon]`
+  - `Path | None`
+- Similarities between Python type hints and Java method declarations.
+- Python decorators such as `@app.get()` and their conceptual similarity to Java framework annotations.
+
+### Current Project State
+
+- Pokémon data is loaded and validated when the backend starts.
+- `GET /pokemon` returns the complete Pokémon catalog.
+- `GET /generate` returns 3 unique randomly selected Pokémon.
+- Randomization logic is contained in its own service rather than directly inside the API route.
+
+### Next Goal
+
+- Begin adding rules to the randomizer.
+- Implement one or both MVP filters:
+  - Exclude legendary Pokémon.
+  - Restrict generation(s).
+- Decide how filter options should be passed from the client to the backend.

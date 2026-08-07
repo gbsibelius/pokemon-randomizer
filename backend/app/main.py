@@ -2,6 +2,7 @@ from fastapi import FastAPI
 
 from app.models.pokemon import Pokemon
 from app.services.pokemon_loader import load_pokemon
+from app.services.randomizer_service import generate_pokemon
 
 app = FastAPI(title="Pokemon Randomizer API")
 
@@ -18,3 +19,9 @@ def get_all_pokemon() -> list[Pokemon]:
     """Return every Pokemon available to the randomizer."""
 
     return pokemon_catalog
+
+@app.get("/generate", response_model=list[Pokemon])
+def generate_random_pokemon() -> list[Pokemon]:
+    """Generate three unique random Pokemon."""
+
+    return generate_pokemon(pokemon_catalog)
