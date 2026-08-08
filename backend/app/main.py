@@ -1,8 +1,9 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, status
 
 from app.models.pokemon import Pokemon
 from app.services.pokemon_loader import load_pokemon
 from app.services.randomizer_service import generate_pokemon
+from app.models.generate_request import GenerateRequest
 
 app = FastAPI(title="Pokemon Randomizer API")
 
@@ -20,8 +21,21 @@ def get_all_pokemon() -> list[Pokemon]:
 
     return pokemon_catalog
 
-@app.get("/generate", response_model=list[Pokemon])
-def generate_random_pokemon() -> list[Pokemon]:
-    """Generate three unique random Pokemon."""
+@app.post("/generate", response_model=list[Pokemon])
+def generate_random_pokemon(
+    request: GenerateRequest,
+) -> list[Pokemon]:
+    """Generate three unique random Pokemon according to supplied rules."""
 
-    return generate_pokemon(pokemon_catalog)
+    try:
+        return generate_pokemon(
+            pokemon_catalog,
+            count=request.count,
+            generations=request.generations,
+            exclude_legendaries=request.exclude_legendaries,
+        )
+    except ValueError as error:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(error),
+        ) from error

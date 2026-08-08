@@ -153,3 +153,83 @@
   - Exclude legendary Pokémon.
   - Restrict generation(s).
 - Decide how filter options should be passed from the client to the backend.
+
+
+## Session 5 — August 8, 2026
+
+### Completed
+
+- Created a `GenerateRequest` Pydantic model for configurable randomization requests.
+- Changed the `/generate` endpoint from a fixed GET request to a configurable POST request.
+- Added support for:
+  - Custom Pokémon count.
+  - Generation filtering.
+  - Excluding legendary Pokémon.
+- Updated the randomizer service to filter the eligible Pokémon pool before random selection.
+- Added validation for requests that cannot be satisfied by the available Pokémon.
+- Added HTTP error handling to translate randomizer `ValueError` exceptions into `400 Bad Request` responses.
+- Verified the distinction between:
+  - `200 OK` for successful requests.
+  - `400 Bad Request` for valid but impossible randomization requests.
+  - `422 Unprocessable Content` for invalid request-model data.
+- Installed and configured pytest.
+- Created unit tests for the randomizer service.
+- Added tests for:
+  - Default generation count.
+  - Unique Pokémon results.
+  - Generation filtering.
+  - Legendary exclusion.
+  - Requests exceeding the available Pokémon pool.
+- Added FastAPI API tests using `TestClient`.
+- Added API tests for:
+  - Root/status endpoint.
+  - Pokémon catalog endpoint.
+  - Generation filtering.
+  - Unique generated Pokémon.
+  - 400 error responses.
+  - 422 request validation.
+- Established a baseline of 11 passing automated tests.
+- Created `pytest.ini` to configure the backend as the Python source root for pytest.
+- Added VS Code/Pylance configuration so imports from `app` resolve correctly in test files.
+- Separated development dependencies into `requirements-dev.txt`.
+- Updated HTTP testing dependencies to remove the TestClient deprecation warning.
+- Created an initial PokéAPI import script.
+- Successfully retrieved Pokémon and species information from PokéAPI.
+- Added an HTTP User-Agent, JSON Accept header, and request timeout to the importer.
+- Successfully transformed PokéAPI data for Bulbasaur into the application's simplified Pokémon structure.
+
+### Concepts Reviewed
+
+- REST APIs, routes, endpoints, HTTP methods, request bodies, and responses.
+- GET vs. POST requests.
+- Path parameters, query parameters, and JSON request bodies.
+- HTTP status codes and the distinction between client and server errors.
+- Input/model validation vs. business-rule validation.
+- Exception handling with `try` / `except`.
+- Translating service-layer exceptions into HTTP errors.
+- Keeping business logic independent from FastAPI/HTTP concerns.
+- Unit tests vs. API/integration-level tests.
+- Pytest fixtures and the Arrange → Act → Assert testing pattern.
+- Designing randomized tests so randomness cannot hide bugs.
+- Runtime imports vs. static analysis/import configuration.
+- Production dependencies vs. development dependencies.
+- Acting as an HTTP client when consuming an external API.
+- HTTP request headers and network timeouts.
+- Transforming an external API's data model into our own internal representation.
+
+### Current Project State
+
+- `POST /generate` accepts configurable generation and legendary filters.
+- The randomizer validates and handles impossible requests cleanly.
+- The backend has 11 passing automated tests covering both service and API behavior.
+- A single Pokémon can successfully be retrieved and transformed from PokéAPI.
+- The application still uses the small local `pokemon.json` catalog at runtime.
+- The PokéAPI importer currently returns a dictionary rather than a validated `Pokemon` model.
+
+### Next Goals
+
+- Decide on a clean project/import structure that allows standalone scripts to reuse backend models.
+- Validate imported PokéAPI records using the existing `Pokemon` model.
+- Expand the importer from one Pokémon to a larger/full Pokémon catalog.
+- Generate `data/pokemon.json` from PokéAPI rather than maintaining it manually.
+- Run the existing test suite against the expanded dataset and verify that backend behavior remains unchanged.
