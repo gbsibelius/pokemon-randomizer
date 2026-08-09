@@ -1,6 +1,7 @@
 import json
 
 from urllib.request import Request, urlopen
+from app.models.pokemon import Pokemon
 
 
 POKEAPI_BASE_URL = "https://pokeapi.co/api/v2"
@@ -31,7 +32,7 @@ def get_generation_number(generation_url: str) -> int:
     )
 
 
-def import_pokemon(pokedex_number: int) -> dict:
+def import_pokemon(pokedex_number: int) -> Pokemon:
     """Fetch and transform one Pokémon into our application's format."""
 
     species_data = fetch_json(
@@ -47,15 +48,15 @@ def import_pokemon(pokedex_number: int) -> dict:
         for type_entry in pokemon_data["types"]
     ]
 
-    return {
-        "pokedex_number": species_data["id"],
-        "name": species_data["name"].title(),
-        "generation": get_generation_number(
+    return Pokemon(
+        pokedex_number=species_data["id"],
+        name=species_data["name"].title(),
+        generation=get_generation_number(
             species_data["generation"]["url"]
         ),
-        "types": types,
-        "is_legendary": species_data["is_legendary"],
-    }
+        types=types,
+        is_legendary=species_data["is_legendary"],
+    )
 
 
 if __name__ == "__main__":
@@ -63,7 +64,7 @@ if __name__ == "__main__":
 
     print(
         json.dumps(
-            pokemon,
+            pokemon.model_dump(),
             indent=2,
         )
     )
