@@ -25,6 +25,7 @@ def test_get_pokemon_returns_catalog() -> None:
     assert "generation" in pokemon[0]
     assert "types" in pokemon[0]
     assert "is_legendary" in pokemon[0]
+    assert "is_mythical" in pokemon[0]
 
 def test_generate_returns_requested_generation() -> None:
     request_body = {

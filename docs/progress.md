@@ -279,3 +279,96 @@
 - Eventually generate the full `data/pokemon.json` dataset automatically.
 
 
+## Session 7 — August 11, 2026
+
+### Completed
+
+- Added full PokéAPI transformation testing using mocked API responses.
+- Improved Pokémon name handling by using PokéAPI's English display names.
+- Updated the importer to follow each species' default variety rather than assuming the Pokémon endpoint matches the species ID directly.
+- Added batch importing with `import_pokedex()`.
+- Added automated tests for batch importing.
+- Added support for distinguishing Legendary and Mythical Pokémon.
+- Updated the `Pokemon` model with:
+  - `is_legendary`
+  - `is_mythical`
+- Updated importer tests, randomizer fixtures, API expectations, and local dataset schema for the Legendary/Mythical distinction.
+- Added JSON-writing support for imported Pokémon.
+- Added round-trip testing to verify generated JSON can be loaded back through `pokemon_loader`.
+- Added dynamic Pokédex discovery using PokéAPI pagination rather than hardcoding the final Pokédex number.
+- Added a reusable PokéAPI resource-ID parser.
+- Added tests for pagination and Pokédex discovery.
+- Added import progress reporting.
+- Added HTTP retry handling for temporary network failures and timeouts.
+- Successfully verified retry behavior during a real batch import.
+- Added all six Pokémon base stats to the application model:
+  - HP
+  - Attack
+  - Defense
+  - Special Attack
+  - Special Defense
+  - Speed
+- Added stat extraction from PokéAPI without requiring additional API requests.
+- Added automated tests for base-stat transformation.
+- Migrated existing tests and local Pokémon data to the expanded model.
+- Added Pokédex integrity validation.
+- Added tests for valid and incomplete Pokédex datasets.
+- Successfully discovered all 1,025 species from PokéAPI.
+- Successfully imported all 1,025 Pokémon species using their default varieties.
+- Generated a full local Pokédex JSON dataset.
+- Loaded and validated all 1,025 generated records through the existing `pokemon_loader`.
+- Promoted the generated dataset to `data/pokemon.json`.
+- Verified the full test suite passes with 19 tests.
+- Verified FastAPI starts correctly and serves the full generated Pokédex.
+
+### Concepts Reviewed
+
+- Mocking external dependencies with pytest `monkeypatch`.
+- Unit-test boundaries and mocking the dependency immediately below the unit under test.
+- Python list comprehensions and their relationship to traditional loops and Java streams.
+- Batch processing and orchestration.
+- Python `enumerate()`, `range()`, list slicing, `append()`, and `extend()`.
+- Separating external API schemas from internal application models.
+- Default Pokémon varieties versus Pokémon species.
+- Data-schema migrations and how model changes affect stored JSON and tests.
+- Difference between pytest collection errors and normal test failures.
+- JSON serialization and deserialization.
+- Temporary filesystem testing with pytest `tmp_path`.
+- API pagination.
+- HTTP retries, timeouts, and transient versus non-transient failures.
+- Derived data versus stored data, particularly BST versus individual base stats.
+- Build-time/data-import dependencies versus runtime application dependencies.
+- Dataset integrity validation before promoting generated data into production use.
+
+### Current Project State
+
+- The backend uses a generated local dataset containing 1,025 Pokémon species.
+- Each Pokémon currently represents its default PokéAPI variety.
+- Each record contains:
+  - National Pokédex number
+  - English display name
+  - Generation
+  - Type(s)
+  - HP
+  - Attack
+  - Defense
+  - Special Attack
+  - Special Defense
+  - Speed
+  - Legendary status
+  - Mythical status
+- The application does not depend on PokéAPI during normal runtime.
+- PokéAPI is only required when regenerating or updating the local dataset.
+- The randomizer continues to support generation filtering and Legendary exclusion.
+- The FastAPI application successfully loads and serves the full dataset.
+- The automated test suite contains 19 passing tests.
+
+### Next Goals
+
+- Add independent Mythical exclusion support to generation requests.
+- Add BST-based filtering using the six stored base stats.
+- Consider exposing individual stat filters in the future.
+- Decide how alternate Pokémon varieties/forms should be represented in the randomization pool.
+- Revisit Pokémon identity before adding variants, likely separating National Pokédex species number from a variety-specific identifier.
+- Eventually begin frontend development once the desired MVP backend filtering behavior is settled.
+

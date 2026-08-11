@@ -8,4 +8,13 @@ class Pokemon(BaseModel):
     name: str
     generation: int
     types: list[str]
+
+    hp: int
+    attack: int
+    defense: int
+    special_attack: int
+    special_defense: int
+    speed: int
+
     is_legendary: bool
+    is_mythical: bool
