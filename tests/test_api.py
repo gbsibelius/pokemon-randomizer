@@ -26,6 +26,12 @@ def test_get_pokemon_returns_catalog() -> None:
     assert "types" in pokemon[0]
     assert "is_legendary" in pokemon[0]
     assert "is_mythical" in pokemon[0]
+    assert "hp" in pokemon[0]
+    assert "attack" in pokemon[0]
+    assert "defense" in pokemon[0]
+    assert "special_attack" in pokemon[0]
+    assert "special_defense" in pokemon[0]
+    assert "speed" in pokemon[0]
 
 def test_generate_returns_requested_generation() -> None:
     request_body = {
@@ -100,3 +106,64 @@ def test_generate_rejects_count_less_than_one() -> None:
     )
 
     assert response.status_code == 422
+
+def test_generate_returns_pokemon_within_bst_range() -> None:
+    response = client.post(
+        "/generate",
+        json={
+            "count": 3,
+            "generations": None,
+            "exclude_legendaries": False,
+            "exclude_mythicals": False,
+            "min_bst": 300,
+            "max_bst": 400,
+        },
+    )
+
+    assert response.status_code == 200
+
+    pokemon = response.json()
+
+    assert len(pokemon) == 3
+
+    for entry in pokemon:
+        bst = (
+            entry["hp"]
+            + entry["attack"]
+            + entry["defense"]
+            + entry["special_attack"]
+            + entry["special_defense"]
+            + entry["speed"]
+        )
+
+        assert 300 <= bst <= 400
+
+def test_generate_rejects_invalid_bst_range() -> None:
+    response = client.post(
+        "/generate",
+        json={
+            "count": 3,
+            "min_bst": 600,
+            "max_bst": 300,
+        },
+    )
+
+    assert response.status_code == 422
+
+def test_generate_excludes_mythical_pokemon() -> None:
+    response = client.post(
+        "/generate",
+        json={
+            "count": 5,
+            "exclude_mythicals": True,
+        },
+    )
+
+    assert response.status_code == 200
+
+    pokemon = response.json()
+
+    assert all(
+        not entry["is_mythical"]
+        for entry in pokemon
+    )

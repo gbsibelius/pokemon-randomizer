@@ -8,6 +8,9 @@ def generate_pokemon(
     count: int = 3,
     generations: list[int] | None = None,
     exclude_legendaries: bool = False,
+    exclude_mythicals: bool = False,
+    min_bst: int | None = None,
+    max_bst: int | None = None,
 ) -> list[Pokemon]:
     """Select a specified number of unique Pokemon at random."""
 
@@ -25,6 +28,27 @@ def generate_pokemon(
             pokemon
             for pokemon in eligible_pokemon
             if not pokemon.is_legendary
+        ]
+
+    if exclude_mythicals:
+        eligible_pokemon = [
+            pokemon
+            for pokemon in eligible_pokemon
+            if not pokemon.is_mythical
+        ]
+
+    if min_bst is not None:
+        eligible_pokemon = [
+            pokemon
+            for pokemon in eligible_pokemon
+            if pokemon.bst >= min_bst
+        ]
+
+    if max_bst is not None:
+        eligible_pokemon = [
+            pokemon
+            for pokemon in eligible_pokemon
+            if pokemon.bst <= max_bst
         ]
 
     if count > len(eligible_pokemon):

@@ -18,3 +18,16 @@ class Pokemon(BaseModel):
 
     is_legendary: bool
     is_mythical: bool
+
+    @property
+    def bst(self) -> int:
+        """Return the Pokemon's base stat total."""
+
+        return (
+            self.hp
+            + self.attack
+            + self.defense
+            + self.special_attack
+            + self.special_defense
+            + self.speed
+        )

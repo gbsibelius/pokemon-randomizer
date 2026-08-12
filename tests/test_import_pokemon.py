@@ -323,3 +323,19 @@ def test_validate_pokedex_rejects_missing_pokemon() -> None:
             pokemon,
             [1, 2],
         )
+
+def test_load_pokemon_rejects_non_array_json(
+    tmp_path: Path,
+) -> None:
+    data_file = tmp_path / "pokemon.json"
+
+    data_file.write_text(
+        '{"name": "Bulbasaur"}',
+        encoding="utf-8",
+    )
+
+    with pytest.raises(
+        ValueError,
+        match="Pokemon data file must contain a JSON array",
+    ):
+        load_pokemon(data_file)

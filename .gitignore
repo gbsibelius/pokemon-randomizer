@@ -4,3 +4,7 @@
 # Python-generated cache files
 __pycache__/
 *.py[cod]
+
+.coverage
+htmlcov/
+coverage.xml

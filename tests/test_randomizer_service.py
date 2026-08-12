@@ -14,12 +14,12 @@ def sample_catalog() -> list[Pokemon]:
             name="Bulbasaur",
             generation=1,
             types=["Grass", "Poison"],
-            hp=50,
-            attack=50,
-            defense=50,
-            special_attack=50,
-            special_defense=50,
-            speed=50,
+            hp=45,
+            attack=49,
+            defense=49,
+            special_attack=65,
+            special_defense=65,
+            speed=45,
             is_legendary=False,
             is_mythical=False,
         ),
@@ -28,12 +28,12 @@ def sample_catalog() -> list[Pokemon]:
             name="Pikachu",
             generation=1,
             types=["Electric"],
-            hp=50,
-            attack=50,
-            defense=50,
+            hp=35,
+            attack=55,
+            defense=40,
             special_attack=50,
             special_defense=50,
-            speed=50,
+            speed=90,
             is_legendary=False,
             is_mythical=False,
         ),
@@ -42,26 +42,40 @@ def sample_catalog() -> list[Pokemon]:
             name="Mewtwo",
             generation=1,
             types=["Psychic"],
-            hp=50,
-            attack=50,
-            defense=50,
-            special_attack=50,
-            special_defense=50,
-            speed=50,
+            hp=106,
+            attack=110,
+            defense=90,
+            special_attack=154,
+            special_defense=90,
+            speed=130,
             is_legendary=True,
             is_mythical=False,
+        ),
+        Pokemon(
+            pokedex_number=151,
+            name="Mew",
+            generation=1,
+            types=["Psychic"],
+            hp=100,
+            attack=100,
+            defense=100,
+            special_attack=100,
+            special_defense=100,
+            speed=100,
+            is_legendary=False,
+            is_mythical=True,
         ),
         Pokemon(
             pokedex_number=152,
             name="Chikorita",
             generation=2,
             types=["Grass"],
-            hp=50,
-            attack=50,
-            defense=50,
-            special_attack=50,
-            special_defense=50,
-            speed=50,
+            hp=45,
+            attack=49,
+            defense=65,
+            special_attack=49,
+            special_defense=65,
+            speed=45,
             is_legendary=False,
             is_mythical=False,
         ),
@@ -70,12 +84,12 @@ def sample_catalog() -> list[Pokemon]:
             name="Cyndaquil",
             generation=2,
             types=["Fire"],
-            hp=50,
-            attack=50,
-            defense=50,
-            special_attack=50,
+            hp=39,
+            attack=52,
+            defense=43,
+            special_attack=60,
             special_defense=50,
-            speed=50,
+            speed=65,
             is_legendary=False,
             is_mythical=False,
         ),
@@ -83,13 +97,13 @@ def sample_catalog() -> list[Pokemon]:
             pokedex_number=158,
             name="Totodile",
             generation=2,
-            hp=50,
-            attack=50,
-            defense=50,
-            special_attack=50,
-            special_defense=50,
-            speed=50,
             types=["Water"],
+            hp=50,
+            attack=65,
+            defense=64,
+            special_attack=44,
+            special_defense=48,
+            speed=43,
             is_legendary=False,
             is_mythical=False,
         ),
@@ -145,6 +159,21 @@ def test_exclude_legendaries_removes_legendary_pokemon(
         for pokemon in result
     )
 
+def test_exclude_mythicals_removes_mythical_pokemon(
+    sample_catalog: list[Pokemon],
+) -> None:
+    result = generate_pokemon(
+        sample_catalog,
+        count=3,
+        generations=[1],
+        exclude_mythicals=True,
+    )
+
+    assert all(
+        not pokemon.is_mythical
+        for pokemon in result
+    )
+
 def test_generate_pokemon_raises_value_error_when_pool_is_too_small(
     sample_catalog: list[Pokemon],
 ) -> None:
@@ -157,3 +186,64 @@ def test_generate_pokemon_raises_value_error_when_pool_is_too_small(
             count=4,
             generations=[2],
         )
+
+def test_pokemon_bst_sums_base_stats() -> None:
+    pokemon = Pokemon(
+        pokedex_number=1,
+        name="Bulbasaur",
+        generation=1,
+        types=["Grass", "Poison"],
+        hp=45,
+        attack=49,
+        defense=49,
+        special_attack=65,
+        special_defense=65,
+        speed=45,
+        is_legendary=False,
+        is_mythical=False,
+    )
+
+    assert pokemon.bst == 318
+
+def test_min_bst_filter_removes_lower_bst_pokemon(
+    sample_catalog: list[Pokemon],
+) -> None:
+    result = generate_pokemon(
+        sample_catalog,
+        count=2,
+        min_bst=500,
+    )
+
+    assert all(
+        pokemon.bst >= 500
+        for pokemon in result
+    )
+
+def test_max_bst_filter_removes_higher_bst_pokemon(
+    sample_catalog: list[Pokemon],
+) -> None:
+    result = generate_pokemon(
+        sample_catalog,
+        count=2,
+        max_bst=315,
+    )
+
+    assert all(
+        pokemon.bst <= 315
+        for pokemon in result
+    )
+
+def test_bst_range_only_returns_pokemon_within_range(
+    sample_catalog: list[Pokemon],
+) -> None:
+    result = generate_pokemon(
+        sample_catalog,
+        count=3,
+        min_bst=315,
+        max_bst=320,
+    )
+
+    assert all(
+        315 <= pokemon.bst <= 320
+        for pokemon in result
+    )
