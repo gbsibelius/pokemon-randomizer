@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException, status
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.models.pokemon import Pokemon
 from app.services.pokemon_loader import load_pokemon
@@ -6,6 +7,15 @@ from app.services.randomizer_service import generate_pokemon
 from app.models.generate_request import GenerateRequest
 
 app = FastAPI(title="Pokemon Randomizer API")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 pokemon_catalog: list[Pokemon] = load_pokemon()
 
@@ -33,6 +43,9 @@ def generate_random_pokemon(
             count=request.count,
             generations=request.generations,
             exclude_legendaries=request.exclude_legendaries,
+            exclude_mythicals=request.exclude_mythicals,
+            min_bst=request.min_bst,
+            max_bst=request.max_bst,
         )
     except ValueError as error:
         raise HTTPException(

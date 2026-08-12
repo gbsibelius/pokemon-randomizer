@@ -1,0 +1,59 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.hero {
+  max-width: 700px;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.hero h1 {
+  margin: 0.5rem 0 1rem;
+  font-size: 3rem;
+}
+
+.description {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.generate-button {
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.click-count {
+  margin-top: 1rem;
+}
+
+.pokemon-results {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.pokemon-result {
+  flex: 1;
+  min-width: 160px;
+  padding: 1rem;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  background: white;
+}
+
+.pokemon-result h2 {
+  margin-top: 0;
+}

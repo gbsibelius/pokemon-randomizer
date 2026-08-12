@@ -372,3 +372,107 @@
 - Revisit Pokémon identity before adding variants, likely separating National Pokédex species number from a variety-specific identifier.
 - Eventually begin frontend development once the desired MVP backend filtering behavior is settled.
 
+
+## Session 8 — August 12, 2026
+
+### Completed
+
+- Added independent Mythical Pokémon exclusion support.
+- Updated `GenerateRequest`, the randomizer service, and the `/generate` API endpoint to support `exclude_mythicals`.
+- Added service and API tests for Mythical exclusion.
+- Added a computed `bst` property to the `Pokemon` model using the six stored base stats.
+- Added optional minimum and maximum BST filters to generation requests.
+- Added cross-field validation to reject requests where `min_bst` is greater than `max_bst`.
+- Added randomizer service tests for:
+  - Minimum BST filtering.
+  - Maximum BST filtering.
+  - Combined BST range filtering.
+- Updated the randomizer test fixture to use real Pokémon base stats rather than placeholder values.
+- Added API tests for:
+  - BST filtering.
+  - Invalid BST ranges.
+  - Mythical exclusion.
+- Expanded the `/pokemon` API contract test to include all six base stat fields.
+- Installed and configured `pytest-cov`.
+- Ran line and branch coverage through pytest and VS Code.
+- Achieved full line/branch coverage for the core randomizer service, request model, Pokémon model, and API layer.
+- Added a missing loader failure-path test for non-array JSON data, bringing `pokemon_loader` to full branch coverage.
+- Installed Node.js and npm for frontend development.
+- Created the frontend using React, TypeScript, and Vite.
+- Selected ESLint for frontend linting.
+- Learned the basic frontend project structure, including:
+  - `index.html`
+  - `main.tsx`
+  - `App.tsx`
+  - CSS files
+  - `package.json`
+  - `node_modules`
+  - TypeScript/Vite configuration
+- Replaced the default Vite starter interface with the first Pokémon Randomizer UI.
+- Added basic React state and event handling.
+- Added FastAPI CORS configuration for the local React development server.
+- Created a TypeScript `Pokemon` interface matching the backend API response.
+- Replaced the temporary click counter with a real HTTP `POST /generate` request.
+- Connected the React frontend to the FastAPI backend.
+- Displayed three randomly generated Pokémon in the browser with:
+  - Name
+  - Type(s)
+  - Generation
+- Verified repeated clicks generate new Pokémon without refreshing the page.
+
+### Concepts Reviewed
+
+- Frontend versus backend responsibilities.
+- HTML as webpage structure.
+- CSS as presentation and styling.
+- TypeScript/JavaScript as frontend behavior.
+- React components and JSX.
+- React state with `useState`.
+- Event handlers and `onClick`.
+- JSX expressions using `{}`.
+- Rendering arrays with `.map()`.
+- TypeScript interfaces.
+- Asynchronous functions and `await`.
+- Browser `fetch()` requests.
+- JSON serialization with `JSON.stringify()`.
+- CORS and browser origin security.
+- Vite's development server and Hot Module Replacement.
+- Node.js versus npm.
+- `package.json`, `package-lock.json`, and `node_modules`.
+- Frontend development server versus production builds.
+- Line coverage versus branch coverage.
+- Using code coverage as a gap detector rather than simply targeting 100%.
+
+### Current Project State
+
+- Backend uses the complete locally stored 1,025-species Pokémon dataset.
+- Generation supports:
+  - Custom Pokémon count.
+  - Generation filtering.
+  - Legendary exclusion.
+  - Mythical exclusion.
+  - Minimum BST.
+  - Maximum BST.
+- Invalid BST ranges are rejected during request validation.
+- Core runtime backend code has strong line and branch test coverage.
+- React + TypeScript frontend is running through Vite.
+- The frontend successfully communicates with FastAPI.
+- Clicking `Generate Pokémon` retrieves and displays three real randomized Pokémon.
+- The frontend currently displays Pokémon names, types, and generations.
+- Filter controls have not yet been added to the frontend.
+- Pokémon cards are functional placeholders and have not yet received final visual design.
+
+### Next Goals
+
+- Begin designing the actual Pokémon result cards.
+- Decide how Pokémon artwork/images should be sourced and represented.
+- Create frontend filter controls for:
+  - Generations.
+  - Legendary exclusion.
+  - Mythical exclusion.
+  - BST range.
+- Connect those controls to the existing `/generate` request.
+- Add frontend loading and error states.
+- Refactor `App.tsx` into smaller React components as the interface grows.
+- Explore responsive/mobile-friendly layout.
+- Eventually revisit alternate Pokémon varieties/forms as a separate data-model milestone.
