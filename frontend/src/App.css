@@ -57,3 +57,43 @@
 .pokemon-result h2 {
   margin-top: 0;
 }
+
+.filter-options {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+
+.generation-filter {
+  margin: 0 0 1.5rem;
+  padding: 1rem;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+}
+
+.generation-filter legend {
+  padding: 0 0.5rem;
+  font-weight: 700;
+}
+
+.generation-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.generation-option {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+}

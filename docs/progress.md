@@ -476,3 +476,56 @@
 - Refactor `App.tsx` into smaller React components as the interface grows.
 - Explore responsive/mobile-friendly layout.
 - Eventually revisit alternate Pokémon varieties/forms as a separate data-model milestone.
+
+
+## Session 9 — August 14, 2026
+
+### Completed
+
+- Added frontend controls for excluding Legendary Pokémon.
+- Added frontend controls for excluding Mythical Pokémon.
+- Connected both exclusion controls to the existing `/generate` API request.
+- Verified Legendary and Mythical filters work through the complete frontend-to-backend flow.
+- Added generation selection controls for Generations 1 through 9.
+- Added React state for tracking selected generations.
+- Added generation toggle behavior for selecting and deselecting multiple generations.
+- Connected selected generations to the `/generate` request.
+- Preserved the backend's existing behavior where no selected generations means no generation restriction.
+- Verified generation filtering works individually and in combination with Legendary/Mythical exclusion.
+- Identified Ultra Beasts as a potential future filter category.
+
+### Concepts Reviewed
+
+- Controlled form inputs in React.
+- Checkbox state using `checked` and `onChange`.
+- React state for boolean values and arrays.
+- Updating array state immutably.
+- JavaScript/TypeScript `.includes()`, `.filter()`, and spread syntax.
+- Rendering repeated form controls with `.map()`.
+- HTML `fieldset`, `legend`, `label`, and checkbox inputs.
+- Conditional request values using the ternary operator.
+- Combining multiple frontend filters into a single API request.
+- Responsive wrapping of frontend controls using CSS flexbox.
+
+### Current Project State
+
+- React frontend communicates successfully with FastAPI.
+- Clicking Generate displays three randomized Pokémon.
+- Frontend generation requests currently support:
+  - Generation selection.
+  - Legendary exclusion.
+  - Mythical exclusion.
+- Multiple generations can be selected simultaneously.
+- Selecting no generations allows Pokémon from every generation.
+- Backend BST filtering exists but does not yet have frontend controls.
+- Result cards currently display Pokémon name, type(s), and generation.
+- Pokémon result-card styling is still an early placeholder.
+
+### Next Goals
+
+- Add frontend minimum and maximum BST controls.
+- Add loading and error states for generation requests.
+- Begin refining the Pokémon result-card design.
+- Decide how Pokémon artwork should be sourced and displayed.
+- Refactor the growing `App.tsx` into smaller React components.
+- Investigate adding Ultra Beast metadata/filtering in a future backend/data-model update.
