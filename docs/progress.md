@@ -529,3 +529,77 @@
 - Decide how Pokémon artwork should be sourced and displayed.
 - Refactor the growing `App.tsx` into smaller React components.
 - Investigate adding Ultra Beast metadata/filtering in a future backend/data-model update.
+
+
+## Session 10 — August 15, 2026
+
+### Completed
+
+- Added minimum and maximum BST controls to the React frontend.
+- Added React state for optional BST bounds.
+- Converted browser number-input values into `number | null` application state.
+- Connected `min_bst` and `max_bst` to the `/generate` request.
+- Added frontend BST calculation using the six base stats returned by the API.
+- Added stat displays for:
+  - HP
+  - Attack
+  - Defense
+  - Special Attack
+  - Special Defense
+  - Speed
+  - BST
+- Verified BST filtering visually using displayed BST values.
+- Added request loading state.
+- Disabled the Generate button while a request is in progress.
+- Added frontend error state and error-message rendering.
+- Added explicit handling for unsuccessful HTTP responses using `response.ok`.
+- Added `try` / `catch` / `finally` handling around generation requests.
+- Verified an invalid BST range produces a graceful frontend error.
+- Verified stopping FastAPI produces a network failure message without breaking the page.
+- Preserved previously generated Pokémon when a new request fails.
+
+### Concepts Reviewed
+
+- Controlled numeric inputs in React.
+- Translating between browser string values and application numeric/null state.
+- The nullish coalescing operator (`??`).
+- JavaScript `Number(...)` conversion.
+- Derived frontend data.
+- Rendering stat collections with `.map()`.
+- TypeScript type inference inside array mapping.
+- `async` / `await`.
+- `try` / `catch` / `finally`.
+- `response.ok`.
+- Difference between HTTP errors and network failures.
+- Conditional rendering.
+- Loading state and disabling controls during requests.
+- Backend-authoritative validation versus frontend UX validation.
+
+### Current Project State
+
+- Frontend supports:
+  - Generation filtering.
+  - Legendary exclusion.
+  - Mythical exclusion.
+  - Minimum BST.
+  - Maximum BST.
+- Result cards display:
+  - Pokémon name
+  - Type(s)
+  - Generation
+  - All six base stats
+  - BST
+- Generation requests now handle loading and failure states gracefully.
+- Backend validation remains authoritative.
+- Frontend currently shows a generic API error for invalid requests.
+- Network failures show the browser-generated fetch error.
+- Result-card styling is still intentionally basic.
+
+### Next Goals
+
+- Refactor the growing `App.tsx` into smaller components.
+- Improve API error parsing so backend validation messages can be shown to the user.
+- Begin deliberate visual design of the Pokémon cards and filter panel.
+- Decide how Pokémon artwork/images should be sourced.
+- Consider frontend validation for invalid BST ranges.
+- Investigate Ultra Beast metadata/filtering as a later backend/data-model feature.

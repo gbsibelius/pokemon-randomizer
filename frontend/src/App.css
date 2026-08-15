@@ -97,3 +97,18 @@
   gap: 0.25rem;
   cursor: pointer;
 }
+
+.pokemon-stats {
+  margin-top: 1rem;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.error-message {
+  margin-top: 1rem;
+  font-weight: 700;
+}
