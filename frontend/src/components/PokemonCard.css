@@ -1,0 +1,22 @@
+.pokemon-result {
+  flex: 1;
+  min-width: 160px;
+  padding: 1rem;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  background: white;
+}
+
+.pokemon-result h2 {
+  margin-top: 0;
+}
+
+.pokemon-stats {
+  margin-top: 1rem;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}

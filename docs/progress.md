@@ -603,3 +603,54 @@
 - Decide how Pokémon artwork/images should be sourced.
 - Consider frontend validation for invalid BST ranges.
 - Investigate Ultra Beast metadata/filtering as a later backend/data-model feature.
+
+
+## Session 11 — August 16, 2026
+
+### Completed
+
+- Began restructuring the React frontend into smaller components.
+- Extracted Pokémon result rendering into `PokemonCard`.
+- Created `PokemonCard.css` and moved card-specific styling out of `App.css`.
+- Extracted filter controls into `FilterPanel`.
+- Kept filter state in `App` while passing values and change callbacks to
+  `FilterPanel` through props.
+- Moved generation, Legendary, Mythical, and BST controls into `FilterPanel`.
+- Created `FilterPanel.css` and moved filter-specific styling out of
+  `App.css`.
+- Reviewed React props and parent/child component communication.
+- Created a TypeScript `GenerateRequest` interface representing the FastAPI
+  request contract.
+- Replaced the anonymous generation request object with a typed
+  `GenerateRequest`.
+- Created `services/pokemonApi.ts`.
+- Extracted HTTP communication and response parsing from `App.tsx` into
+  `generatePokemon()`.
+- Verified generation, filters, invalid requests, and network-error behavior
+  continue to work after the refactor.
+- Created a project roadmap for future feature planning.
+
+### Current Frontend Structure
+
+src/
+├── components/
+│   ├── FilterPanel.tsx
+│   ├── FilterPanel.css
+│   ├── PokemonCard.tsx
+│   └── PokemonCard.css
+├── services/
+│   └── pokemonApi.ts
+├── types/
+│   ├── generateRequest.ts
+│   └── pokemon.ts
+├── App.tsx
+├── App.css
+├── index.css
+└── main.tsx
+
+### Next Steps
+
+- Continue refining the component/API boundaries as needed.
+- Begin deliberate Pokémon card/UI design work.
+- Decide how Pokémon artwork should be represented.
+- Select the next functional feature from `docs/roadmap.md`.
