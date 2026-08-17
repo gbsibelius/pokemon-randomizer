@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { Pokemon } from './types/pokemon'
 import type { GenerateRequest } from './types/generateRequest'
 import { generatePokemon } from './services/pokemonApi'
@@ -6,7 +6,18 @@ import PokemonCard from './components/PokemonCard'
 import FilterPanel from './components/FilterPanel'
 import './App.css'
 
+type Theme = 'light' | 'dark'
+
 function App() {
+  const [theme, setTheme] = useState<Theme>(() => {
+    const savedTheme = localStorage.getItem('theme')
+
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      return savedTheme
+    }
+
+    return 'light'
+  })
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const [pokemon, setPokemon] = useState<Pokemon[]>([])
@@ -15,6 +26,19 @@ function App() {
   const [selectedGenerations, setSelectedGenerations] = useState<number[]>([])
   const [minBST, setMinBST] = useState<number | null>(null)
   const [maxBST, setMaxBST] = useState<number | null>(null)
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    localStorage.setItem('theme', theme)
+  }, [theme])
+
+  function handleThemeToggle() {
+    setTheme((currentTheme) =>
+      currentTheme === 'light'
+        ? 'dark'
+        : 'light'
+    )
+  }
 
   async function handleGenerateClick() {
     setIsLoading(true)
@@ -61,6 +85,12 @@ function App() {
   return (
     <main className="app">
       <section className="hero">
+        <button
+          className="theme-toggle"
+          onClick={handleThemeToggle}
+        >
+          {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
+        </button>
         <p className="eyebrow">Pokémon Randomizer</p>
 
         <h1>Randomize your starters!</h1>

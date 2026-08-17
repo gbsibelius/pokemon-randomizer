@@ -7,7 +7,8 @@
 }
 
 .hero {
-  max-width: 700px;
+  width: 100%;
+  max-width: 950px;
   text-align: center;
 }
 
@@ -35,13 +36,39 @@
   cursor: pointer;
 }
 
+.generate-button,
+.theme-toggle {
+  background: var(--control-background);
+  color: var(--control-text);
+  border: 1px solid var(--control-border);
+}
+
+.generate-button:hover,
+.theme-toggle:hover {
+  background: var(--control-hover);
+}
+
 .pokemon-results {
   display: flex;
+  justify-content: center;
   gap: 1rem;
+  flex-wrap: wrap;
   margin-top: 2rem;
 }
 
 .error-message {
   margin-top: 1rem;
   font-weight: 700;
+}
+
+.theme-toggle {
+  padding: 0.5rem 0.8rem;
+
+  background: var(--surface-background);
+  color: var(--primary-text);
+
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+
+  cursor: pointer;
 }

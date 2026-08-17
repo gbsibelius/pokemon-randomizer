@@ -654,3 +654,118 @@ src/
 - Begin deliberate Pokémon card/UI design work.
 - Decide how Pokémon artwork should be represented.
 - Select the next functional feature from `docs/roadmap.md`.
+
+
+## Session 12 — August 17, 2026
+
+### Completed
+
+- Continued redesigning the Pokémon result cards into a compact Pokédex-style layout.
+- Added visual base-stat bars to all six Pokémon stats.
+- Set stat-bar length using a visual maximum of 200.
+- Tuned stat-strength thresholds based on generated Pokémon:
+  - Below 50: very low.
+  - 50–69: low.
+  - 70–89: below average.
+  - 90–119: solid.
+  - 120–149: high.
+  - 150+: exceptional.
+- Added a bright cyan/teal color for exceptional stats so they stand out from
+  the normal red-to-green progression.
+- Added official Pokémon artwork to result cards.
+- Created a Pokémon artwork helper so components do not need to know how
+  artwork URLs are constructed.
+- Kept artwork derived from the Pokémon identifier rather than storing URLs
+  in the dataset.
+- Discussed preserving `pokedex_number` as the National Pokédex identifier
+  when alternate forms are eventually introduced.
+- Added colored type badges for all 18 Pokémon types.
+- Added local SVG type icons.
+- Created a Pokémon type-icon lookup/helper.
+- Added third-party type-icon assets to the frontend.
+- Tuned badge icon size, spacing, and asymmetric padding for visual balance.
+- Reorganized card information hierarchy:
+  - Artwork.
+  - Pokémon name.
+  - Type badges.
+  - Six base stats and strength bars.
+  - Generation and BST as secondary footer information.
+- Widened Pokémon cards and improved card proportions.
+- Added responsive wrapping to the result-card container.
+- Reduced unnecessary vertical spacing within cards.
+- Added semantic CSS theme variables for:
+  - Page background.
+  - Surface/card background.
+  - Primary text.
+  - Secondary text.
+  - Borders.
+  - Stat tracks.
+  - Form controls.
+- Added light and dark themes.
+- Added a React theme toggle.
+- Used `useEffect` to synchronize React theme state with the document theme.
+- Added `localStorage` persistence so the user's selected theme survives
+  page refreshes and later visits.
+- Updated inputs and buttons to respect the active theme.
+
+### Concepts Reviewed
+
+- Data-driven visualizations in React.
+- Dynamic inline CSS values.
+- Dynamic CSS class names.
+- CSS Grid for stat layouts.
+- Visual scaling versus literal data scaling.
+- Semantic versus theme-specific colors.
+- External artwork helpers and abstraction boundaries.
+- Vite SVG asset imports.
+- Type-to-icon lookup objects.
+- `Record<string, string>` in TypeScript.
+- Decorative image accessibility using empty `alt` text.
+- Responsive Flexbox wrapping.
+- Optical versus mathematical spacing.
+- CSS custom properties / variables.
+- Semantic theme tokens.
+- React `useEffect`.
+- React state initializer functions.
+- Browser `localStorage`.
+- Persisting frontend preferences.
+
+### Current Pokémon Card
+
+Each generated card now displays:
+
+- Official Pokémon artwork.
+- Pokémon name.
+- Colored type badge(s).
+- Type symbol(s).
+- Six base stats.
+- Stat-strength bars.
+- Generation.
+- BST.
+
+The card layout is now a functional V1 design. Further visual refinement can
+be done later without changing the basic information structure.
+
+### Current Theme Support
+
+- Light mode.
+- Dark mode.
+- Theme toggle.
+- Persistent theme preference using `localStorage`.
+- Cards, page surfaces, borders, text, stat tracks, inputs, and buttons use
+  semantic theme variables.
+- Pokémon type colors and stat-strength colors remain independent of theme.
+
+### Next Goals
+
+- Test and improve responsive behavior at narrower screen sizes.
+- Continue general visual polish as needed.
+- Consider replacing the current text theme button with a more compact
+  sun/moon control.
+- Add Ultra Beast metadata and filtering.
+- Design a generated-result model for features such as shiny Pokémon.
+- Explore configurable shiny odds.
+- Design seeded/reproducible generation.
+- Investigate duplicate prevention across a seeded generation session.
+- Add single-card and full-team rerolling.
+- Revisit Pokémon forms/variants and exact-form identifiers.

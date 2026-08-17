@@ -37,3 +37,9 @@
   gap: 0.25rem;
   cursor: pointer;
 }
+
+.bst-filter input {
+  background: var(--control-background);
+  color: var(--control-text);
+  border: 1px solid var(--control-border);
+}
