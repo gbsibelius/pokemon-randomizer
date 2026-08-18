@@ -1,7 +1,9 @@
 import random
 
 from app.models.pokemon import Pokemon
+from app.models.generated_pokemon import GeneratedPokemon
 
+DEFAULT_SHINY_CHANCE = 5
 
 def generate_pokemon(
     pokemon_catalog: list[Pokemon],
@@ -55,3 +57,17 @@ def generate_pokemon(
         raise ValueError("Cannot generate the requested number of Pokemon with the supplied filters.")
 
     return random.sample(eligible_pokemon, count)
+
+def create_generated_pokemon(
+    pokemon: Pokemon,
+    shiny_chance: int = DEFAULT_SHINY_CHANCE,
+) -> GeneratedPokemon:
+    if not 0 <= shiny_chance <= 100:
+        raise ValueError("shiny_chance must be between 0 and 100.")
+    
+    roll = random.randint(1, 100)
+
+    return GeneratedPokemon(
+        pokemon=pokemon,
+        is_shiny=roll <= shiny_chance,
+    )

@@ -769,3 +769,46 @@ be done later without changing the basic information structure.
 - Investigate duplicate prevention across a seeded generation session.
 - Add single-card and full-team rerolling.
 - Revisit Pokémon forms/variants and exact-form identifiers.
+
+
+## Session — August 18, 2026
+
+### Completed
+
+- Added a `GeneratedPokemon` backend model representing a particular generated result.
+- Separated generated-result state from the underlying `Pokemon` species model.
+- Added `is_shiny` as a generated-result property rather than a permanent Pokémon property.
+- Added `create_generated_pokemon()` to the randomizer service.
+- Added a default development shiny chance of 5%.
+- Implemented shiny rolls using an integer range from 1–100.
+- Added validation requiring shiny chance to remain between 0% and 100%.
+- Added deterministic shiny-generation tests using `monkeypatch`.
+- Tested:
+  - A roll at the shiny threshold produces a shiny result.
+  - A roll above the threshold produces a non-shiny result.
+  - Invalid shiny percentages are rejected.
+- Fixed a Python package import issue in `generated_pokemon.py`.
+- Confirmed all 13 randomizer-service tests pass.
+- Deliberately left `/generate` unchanged so the existing frontend/API contract remains functional.
+
+### Concepts Reviewed
+
+- Separating species data from generated-result data.
+- Single-responsibility helper functions.
+- Integer-based probability generation.
+- Deterministic testing of random behavior.
+- Monkeypatching `random.randint`.
+- Boundary testing.
+- Python absolute package imports versus sibling/relative imports.
+- Pytest collection errors versus normal test failures.
+
+### Next Steps
+
+- Change the generation API response from `list[Pokemon]` to generated-result objects.
+- Decide where the transformation from selected Pokémon to `GeneratedPokemon` should occur.
+- Add the matching TypeScript generated-result type.
+- Update the frontend API service for the new response contract.
+- Update `PokemonCard` to consume a generated result.
+- Extend the artwork helper to select normal versus shiny artwork.
+- Add a visible shiny indicator to generated cards.
+- Later expose configurable shiny odds through the UI.

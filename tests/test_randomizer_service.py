@@ -1,6 +1,7 @@
 import pytest
 
 from app.models.pokemon import Pokemon
+from app.services import randomizer_service
 from app.services.randomizer_service import generate_pokemon
 
 
@@ -247,3 +248,57 @@ def test_bst_range_only_returns_pokemon_within_range(
         315 <= pokemon.bst <= 320
         for pokemon in result
     )
+
+def test_create_generated_pokemon_is_shiny_when_roll_is_within_chance(
+    sample_catalog: list[Pokemon],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    pokemon = sample_catalog[0]
+
+    monkeypatch.setattr(
+        randomizer_service.random,
+        "randint",
+        lambda _start, _end: 5,
+    )
+
+    result = randomizer_service.create_generated_pokemon(
+        pokemon,
+        shiny_chance=5,
+    )
+
+    assert result.pokemon == pokemon
+    assert result.is_shiny is True
+
+def test_create_generated_pokemon_is_not_shiny_when_roll_exceeds_chance(
+    sample_catalog: list[Pokemon],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    pokemon = sample_catalog[0]
+
+    monkeypatch.setattr(
+        randomizer_service.random,
+        "randint",
+        lambda _start, _end: 6,
+    )
+
+    result = randomizer_service.create_generated_pokemon(
+        pokemon,
+        shiny_chance=5,
+    )
+
+    assert result.pokemon == pokemon
+    assert result.is_shiny is False
+
+def test_create_generated_pokemon_rejects_invalid_shiny_chance(
+    sample_catalog: list[Pokemon],
+) -> None:
+    pokemon = sample_catalog[0]
+
+    with pytest.raises(
+        ValueError,
+        match="shiny_chance must be between 0 and 100.",
+    ):
+        randomizer_service.create_generated_pokemon(
+            pokemon,
+            shiny_chance=101,
+        )
