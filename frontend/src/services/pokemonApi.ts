@@ -1,11 +1,11 @@
 import type { GenerateRequest } from '../types/generateRequest'
-import type { Pokemon } from '../types/pokemon'
+import type { GeneratedPokemon } from '../types/generatedPokemon'
 
 const API_BASE_URL = 'http://127.0.0.1:8000'
 
 export async function generatePokemon(
   request: GenerateRequest,
-): Promise<Pokemon[]> {
+): Promise<GeneratedPokemon[]> {
   const response = await fetch(
     `${API_BASE_URL}/generate`,
     {
@@ -23,7 +23,7 @@ export async function generatePokemon(
     )
   }
 
-  const generatedPokemon: Pokemon[] = await response.json()
+  const generatedPokemon: GeneratedPokemon[] = await response.json()
 
   return generatedPokemon
 }

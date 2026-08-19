@@ -11,6 +11,7 @@ def generate_pokemon(
     generations: list[int] | None = None,
     exclude_legendaries: bool = False,
     exclude_mythicals: bool = False,
+    exclude_pokedex_numbers: list[int] | None = None,
     min_bst: int | None = None,
     max_bst: int | None = None,
 ) -> list[Pokemon]:
@@ -37,6 +38,13 @@ def generate_pokemon(
             pokemon
             for pokemon in eligible_pokemon
             if not pokemon.is_mythical
+        ]
+
+    if exclude_pokedex_numbers is not None:
+        eligible_pokemon = [
+            pokemon
+            for pokemon in eligible_pokemon
+            if pokemon.pokedex_number not in exclude_pokedex_numbers
         ]
 
     if min_bst is not None:

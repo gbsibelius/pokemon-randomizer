@@ -11,6 +11,8 @@ class GenerateRequest(BaseModel):
     exclude_mythicals: bool = False
     min_bst: int | None = Field(default=None, ge=0)
     max_bst: int | None = Field(default=None, ge=0)
+    shiny_chance: int = Field(default=1, ge=0, le=100)
+    exclude_pokedex_numbers: list[int] | None = None
 
     @model_validator(mode="after")
     def validate_bst_range(self) -> Self:

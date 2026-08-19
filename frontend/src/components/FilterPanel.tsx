@@ -8,12 +8,14 @@ interface FilterPanelProps {
   excludeMythicals: boolean
   minBST: number | null
   maxBST: number | null
+  shinyChance: number | null
 
   onGenerationChange: (generation: number) => void
   onExcludeLegendariesChange: (value: boolean) => void
   onExcludeMythicalsChange: (value: boolean) => void
   onMinBSTChange: (value: number | null) => void
   onMaxBSTChange: (value: number | null) => void
+  onShinyChanceChange: (value: number | null) => void
 }
 
 function FilterPanel({
@@ -22,11 +24,13 @@ function FilterPanel({
   selectedGenerations,
   minBST,
   maxBST,
+  shinyChance,
   onExcludeLegendariesChange,
   onExcludeMythicalsChange,
   onGenerationChange,
   onMinBSTChange,
   onMaxBSTChange,
+  onShinyChanceChange,
 }: FilterPanelProps) {
   return (
     <div className="filter-panel">
@@ -113,6 +117,29 @@ function FilterPanel({
             }}
           />
         </label>
+
+        <label>
+          Shiny Chance (%)
+
+          <input
+            type="number"
+            min="0"
+            max="100"
+            value={shinyChance ?? ''}
+            onChange={(event) => {
+              const value = event.target.value
+
+              onShinyChanceChange(
+                value === ''
+                  ? null
+                  : Number(value)
+              )
+            }}
+          />
+        </label>
+        <span className="filter-hint">
+          (Default: 1%)
+        </span>
       </div>
     </div>
   )

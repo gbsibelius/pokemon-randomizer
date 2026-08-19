@@ -771,7 +771,7 @@ be done later without changing the basic information structure.
 - Revisit Pokémon forms/variants and exact-form identifiers.
 
 
-## Session — August 18, 2026
+## Session 13 — August 18, 2026
 
 ### Completed
 
@@ -812,3 +812,61 @@ be done later without changing the basic information structure.
 - Extend the artwork helper to select normal versus shiny artwork.
 - Add a visible shiny indicator to generated cards.
 - Later expose configurable shiny odds through the UI.
+
+
+## Session 14 — August 19, 2026
+
+### Completed
+
+- Finished shiny generation end-to-end.
+- Added `GeneratedPokemon` responses to `/generate`.
+- Added configurable shiny chance with a 1% default.
+- Added frontend `GeneratedPokemon` typing.
+- Updated the frontend API contract for generated results.
+- Added shiny artwork support.
+- Added a visible shiny indicator beside Pokémon names.
+- Added Pokédex-number exclusions to generation requests.
+- Added backend support for excluding currently visible species.
+- Added service tests for excluded species.
+- Added reroll-pool validation tests.
+- Added API coverage for exclusion behavior.
+- Added per-card reroll buttons.
+- Added single-slot rerolling while preserving the other cards.
+- Prevented rerolls from returning any currently visible species.
+- Rerolls preserve active filters and reroll shiny chance.
+- Updated the main Generate button to act as "Reroll All" once results exist.
+- Added shared loading/error handling for rerolls.
+- Confirmed backend test suite passes.
+
+### Current v1 Feature Status
+
+Core functional features are now complete:
+
+- Generation filters.
+- Legendary/Mythical exclusion.
+- BST filtering.
+- Pokémon artwork.
+- Stats and stat-strength bars.
+- Type badges/icons.
+- Light/dark mode with persistence.
+- Configurable shiny generation.
+- Shiny artwork and indicator.
+- Single-card rerolling.
+- Full-set rerolling through the main Generate/Reroll All button.
+
+### Cleanup / Pre-Deployment Tasks
+
+- Extract duplicated `GenerateRequest` construction in `App.tsx`.
+- Remove redundant `key` from inside `PokemonCard`.
+- Add a guard for an unexpectedly empty reroll response.
+- Improve reroll-specific loading state/UI.
+- Review responsive behavior at narrower widths.
+- Continue general UI polish.
+- Review important code files for useful docstrings/comments.
+- Update README to reflect current features and architecture.
+- Add current screenshots.
+- Add unofficial fan-project disclaimer.
+- Review roadmap/progress documentation for accuracy.
+- Run final lint/build/backend tests.
+- Prepare production environment variables and CORS.
+- Deploy frontend/backend.

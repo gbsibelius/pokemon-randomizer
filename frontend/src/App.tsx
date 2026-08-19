@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import type { Pokemon } from './types/pokemon'
+import type { GeneratedPokemon } from './types/generatedPokemon'
 import type { GenerateRequest } from './types/generateRequest'
 import { generatePokemon } from './services/pokemonApi'
 import PokemonCard from './components/PokemonCard'
@@ -20,12 +20,17 @@ function App() {
   })
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
-  const [pokemon, setPokemon] = useState<Pokemon[]>([])
+  const [generatedPokemon, setGeneratedPokemon] = useState<GeneratedPokemon[]>([])
   const [excludeLegendaries, setExcludeLegendaries] = useState(false)
   const [excludeMythicals, setExcludeMythicals] = useState(false)
   const [selectedGenerations, setSelectedGenerations] = useState<number[]>([])
   const [minBST, setMinBST] = useState<number | null>(null)
   const [maxBST, setMaxBST] = useState<number | null>(null)
+  const [shinyChance, setShinyChance] = useState<number | null>(1)
+  const generateButtonLabel =
+    generatedPokemon.length === 0
+      ? 'Generate Pokémon'
+      : 'Reroll All'
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme
@@ -55,10 +60,56 @@ function App() {
         exclude_mythicals: excludeMythicals,
         min_bst: minBST,
         max_bst: maxBST,
+        shiny_chance: shinyChance ?? 1,
+        exclude_pokedex_numbers: null
       }
-      const generatedPokemon = await generatePokemon(request)
+      const results = await generatePokemon(request)
 
-      setPokemon(generatedPokemon)
+      setGeneratedPokemon(results)
+    } catch (error) {
+      setError(
+        error instanceof Error
+          ? error.message
+          : "An unexpected error occurred."
+      )
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  async function handleReroll(index: number) {
+    setIsLoading(true)
+    setError(null)
+
+    const excludedNumbers = generatedPokemon.map(
+      (result) => result.pokemon.pokedex_number,
+    )
+
+    try {
+      const request: GenerateRequest = {
+        count: 1,
+        generations:
+          selectedGenerations.length === 0
+            ? null
+            : selectedGenerations,
+        exclude_legendaries: excludeLegendaries,
+        exclude_mythicals: excludeMythicals,
+        min_bst: minBST,
+        max_bst: maxBST,
+        shiny_chance: shinyChance ?? 1,
+        exclude_pokedex_numbers: excludedNumbers,
+      }
+
+      const rerollResults = await generatePokemon(request)
+      const rerolledPokemon = rerollResults[0]
+
+      setGeneratedPokemon((currentPokemon) =>
+        currentPokemon.map((result, currentIndex) =>
+          currentIndex === index
+            ? rerolledPokemon
+            : result
+        )
+      )
     } catch (error) {
       setError(
         error instanceof Error
@@ -110,6 +161,8 @@ function App() {
           onGenerationChange={handleGenerationChange}
           onMinBSTChange={setMinBST}
           onMaxBSTChange={setMaxBST}
+          shinyChance={shinyChance}
+          onShinyChanceChange={setShinyChance}
         />
 
         <button
@@ -117,7 +170,7 @@ function App() {
           onClick={handleGenerateClick}
           disabled={isLoading}
         >
-          {isLoading ? "Generating..." : "Generate Pokémon"}
+          {isLoading ? "Generating..." : generateButtonLabel}
         </button>
 
         {error && (
@@ -127,10 +180,12 @@ function App() {
         )}
 
         <div className="pokemon-results">
-          {pokemon.map((entry) => (
+          {generatedPokemon.map((result, index) => (
             <PokemonCard
-              key={entry.pokedex_number}
-              pokemon={entry}
+              key={result.pokemon.pokedex_number}
+              generatedPokemon={result}
+              onReroll={() => handleReroll(index)}
+              isLoading={isLoading}
             />
           ))}
         </div>

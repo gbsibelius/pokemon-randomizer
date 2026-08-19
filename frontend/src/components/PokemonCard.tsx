@@ -1,10 +1,13 @@
 import type { Pokemon } from '../types/pokemon'
+import type { GeneratedPokemon } from '../types/generatedPokemon'
 import { getPokemonArtworkURL } from '../utils/pokemonArtwork'
 import { getTypeIconURL } from '../utils/pokemonTypes'
 import './PokemonCard.css'
 
 interface PokemonCardProps {
-  pokemon: Pokemon
+  generatedPokemon: GeneratedPokemon
+  onReroll: () => void
+  isLoading: boolean
 }
 
 function calculateStatPercentage(stat: number): number {
@@ -59,19 +62,33 @@ function getPokemonStats(pokemon: Pokemon) {
   ]
 }
 
-function PokemonCard({ pokemon }: PokemonCardProps) {
+function PokemonCard({ generatedPokemon, onReroll, isLoading }: PokemonCardProps) {
+  const { pokemon, is_shiny } = generatedPokemon
+
   return (
     <div
       className="pokemon-result"
-      key={pokemon.pokedex_number}
     >
       <img
         className="pokemon-artwork"
-        src={getPokemonArtworkURL(pokemon)}
+        src={getPokemonArtworkURL(pokemon, is_shiny)}
         alt={`${pokemon.name} artwork`}
       />
 
-      <h2>{pokemon.name}</h2>
+      <h2 className="pokemon-name">
+        {pokemon.name}
+
+        {is_shiny && (
+          <span
+            className="shiny-indicator"
+            role="img"
+            aria-label="Shiny Pokemon"
+            title="Shiny Pokemon"
+          >
+            ✦
+          </span>
+        )}
+      </h2>
 
       <div className="pokemon-types">
         {pokemon.types.map((type) => (
@@ -115,6 +132,14 @@ function PokemonCard({ pokemon }: PokemonCardProps) {
           </div>
         ))}
       </div>
+
+      <button
+        className="reroll-button"
+        onClick={onReroll}
+        disabled={isLoading}
+      >
+        Reroll
+      </button>
 
       <div className="pokemon-meta">
         <span>Gen {pokemon.generation}</span>

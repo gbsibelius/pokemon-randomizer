@@ -131,6 +131,22 @@ def test_generate_pokemon_returns_unique_results(
 
     assert len(pokedex_numbers) == len(set(pokedex_numbers))
 
+def test_excluded_pokedex_numbers_are_excluded(
+    sample_catalog: list[Pokemon],
+) -> None:
+    excluded_numbers = [1, 25, 150]
+    
+    result = generate_pokemon(
+        sample_catalog,
+        count=3,
+        exclude_pokedex_numbers=excluded_numbers,
+    )
+
+    assert all(
+        pokemon.pokedex_number not in excluded_numbers
+        for pokemon in result
+    )
+
 def test_generation_filter_only_returns_requested_generation(
     sample_catalog: list[Pokemon],
 ) -> None:
@@ -186,6 +202,20 @@ def test_generate_pokemon_raises_value_error_when_pool_is_too_small(
             sample_catalog,
             count=4,
             generations=[2],
+        )
+
+def test_generate_pokemon_raises_value_error_when_reroll_pool_is_too_small(
+    sample_catalog: list[Pokemon],
+) -> None:
+    with pytest.raises(
+        ValueError,
+        match="Cannot generate the requested number of Pokemon with the supplied filters.",
+    ):
+        generate_pokemon(
+            sample_catalog,
+            count=3,
+            generations=[2],
+            exclude_pokedex_numbers=[152]
         )
 
 def test_pokemon_bst_sums_base_stats() -> None:

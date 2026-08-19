@@ -2,9 +2,10 @@ from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.models.pokemon import Pokemon
-from app.services.pokemon_loader import load_pokemon
-from app.services.randomizer_service import generate_pokemon
+from app.models.generated_pokemon import GeneratedPokemon
 from app.models.generate_request import GenerateRequest
+from app.services.pokemon_loader import load_pokemon
+from app.services.randomizer_service import generate_pokemon, create_generated_pokemon
 
 app = FastAPI(title="Pokemon Randomizer API")
 app.add_middleware(
@@ -31,14 +32,14 @@ def get_all_pokemon() -> list[Pokemon]:
 
     return pokemon_catalog
 
-@app.post("/generate", response_model=list[Pokemon])
+@app.post("/generate", response_model=list[GeneratedPokemon])
 def generate_random_pokemon(
     request: GenerateRequest,
-) -> list[Pokemon]:
+) -> list[GeneratedPokemon]:
     """Generate three unique random Pokemon according to supplied rules."""
 
     try:
-        return generate_pokemon(
+        selected_pokemon = generate_pokemon(
             pokemon_catalog,
             count=request.count,
             generations=request.generations,
@@ -46,9 +47,20 @@ def generate_random_pokemon(
             exclude_mythicals=request.exclude_mythicals,
             min_bst=request.min_bst,
             max_bst=request.max_bst,
+            exclude_pokedex_numbers=request.exclude_pokedex_numbers,
         )
     except ValueError as error:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail=str(error),
         ) from error
+
+    generated_pokemon = [
+        create_generated_pokemon(
+            pokemon,
+            shiny_chance=request.shiny_chance,
+        )
+        for pokemon in selected_pokemon
+    ]
+
+    return generated_pokemon

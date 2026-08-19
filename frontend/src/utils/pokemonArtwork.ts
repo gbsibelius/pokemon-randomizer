@@ -5,6 +5,11 @@ const OFFICIAL_ARTWORK_BASE_URL =
 
 export function getPokemonArtworkURL(
     pokemon: Pokemon,
+    isShiny: boolean,
 ): string {
-    return `${OFFICIAL_ARTWORK_BASE_URL}/${pokemon.pokedex_number}.png`
+    const artworkPath = isShiny
+        ? `${OFFICIAL_ARTWORK_BASE_URL}/shiny`
+        : OFFICIAL_ARTWORK_BASE_URL
+
+    return `${artworkPath}/${pokemon.pokedex_number}.png`
 }

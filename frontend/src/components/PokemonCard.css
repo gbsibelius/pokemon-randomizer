@@ -13,6 +13,19 @@
   margin: 0.25rem 0 0.35rem;
 }
 
+.pokemon-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.shiny-indicator {
+  color: #f6c945;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
 .pokemon-stats {
   display: flex;
   flex-direction: column;

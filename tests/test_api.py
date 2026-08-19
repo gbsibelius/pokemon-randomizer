@@ -51,9 +51,26 @@ def test_generate_returns_requested_generation() -> None:
 
     assert len(pokemon) == 3
     assert all(
-        item["generation"] == 2
+        item["pokemon"]["generation"] == 2
         for item in pokemon
     )
+
+def test_generate_returns_generated_pokemon() -> None:
+    response = client.post(
+        "/generate",
+        json={
+            "count": 3,
+            "generations": None,
+            "exclude_legendaries": False,
+        },
+    )
+
+    assert response.status_code == 200
+
+    pokemon = response.json()
+
+    assert "pokemon" in pokemon[0]
+    assert "is_shiny" in pokemon[0]
 
 def test_generate_returns_unique_pokemon() -> None:
     response = client.post(
@@ -70,7 +87,7 @@ def test_generate_returns_unique_pokemon() -> None:
     pokemon = response.json()
 
     pokedex_numbers = [
-        item["pokedex_number"]
+        item["pokemon"]["pokedex_number"]
         for item in pokemon
     ]
 
@@ -128,12 +145,12 @@ def test_generate_returns_pokemon_within_bst_range() -> None:
 
     for entry in pokemon:
         bst = (
-            entry["hp"]
-            + entry["attack"]
-            + entry["defense"]
-            + entry["special_attack"]
-            + entry["special_defense"]
-            + entry["speed"]
+            entry["pokemon"]["hp"]
+            + entry["pokemon"]["attack"]
+            + entry["pokemon"]["defense"]
+            + entry["pokemon"]["special_attack"]
+            + entry["pokemon"]["special_defense"]
+            + entry["pokemon"]["speed"]
         )
 
         assert 300 <= bst <= 400
@@ -164,6 +181,38 @@ def test_generate_excludes_mythical_pokemon() -> None:
     pokemon = response.json()
 
     assert all(
-        not entry["is_mythical"]
+        not entry["pokemon"]["is_mythical"]
         for entry in pokemon
+    )
+
+def test_generate_rejects_invalid_shiny_chance() -> None:
+    response = client.post(
+        "/generate",
+        json={
+            "count": 3,
+            "shiny_chance": 101,
+        },
+    )
+
+    assert response.status_code == 422
+
+def test_generate_excludes_requested_pokedex_numbers() -> None:
+    excluded_numbers = [1, 25, 150]
+
+    response = client.post(
+        "/generate",
+        json={
+            "count": 3,
+            "exclude_pokedex_numbers": excluded_numbers,
+        },
+    )
+
+    assert response.status_code == 200
+
+    generated_pokemon = response.json()
+
+    assert all(
+        result["pokemon"]["pokedex_number"]
+        not in excluded_numbers
+        for result in generated_pokemon
     )
