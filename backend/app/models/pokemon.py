@@ -2,7 +2,7 @@ from pydantic import BaseModel
 
 
 class Pokemon(BaseModel):
-    """Represents a Pokemon available to the randomizer."""
+    """Represents a Pokemon species record available to the randomizer."""
 
     pokedex_number: int
     name: str

@@ -113,14 +113,12 @@ def sample_catalog() -> list[Pokemon]:
 def test_generate_pokemon_returns_three_by_default(
     sample_catalog: list[Pokemon],
 ) -> None:
-    catalog = sample_catalog
-
-    result = generate_pokemon(catalog)
+    result = generate_pokemon(sample_catalog)
 
     assert len(result) == 3
 
 def test_generate_pokemon_returns_unique_results(
-        sample_catalog: list[Pokemon]
+    sample_catalog: list[Pokemon]
 ) -> None:
     result = generate_pokemon(sample_catalog)
 

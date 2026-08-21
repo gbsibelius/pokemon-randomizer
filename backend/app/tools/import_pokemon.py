@@ -1,10 +1,10 @@
 import json
 import time
-
+from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
+
 from app.models.pokemon import Pokemon
-from pathlib import Path
 
 
 POKEAPI_BASE_URL = "https://pokeapi.co/api/v2"
@@ -67,7 +67,7 @@ def fetch_json(url: str) -> dict:
     raise RuntimeError("Failed to fetch PokéAPI data.")
 
 def get_default_variety_url(species_data: dict) -> str:
-    """Return the PokéAPI URL for a species' default Pokémon variety."""
+    """Return the PokeAPI URL for a species' default Pokemon variety."""
 
     for variety in species_data["varieties"]:
         if variety["is_default"]:
@@ -76,7 +76,7 @@ def get_default_variety_url(species_data: dict) -> str:
     raise ValueError("Pokemon species does not contain a default variety.")
 
 def get_english_name(species_data: dict) -> str:
-    """Return the English display name for a Pokémon species."""
+    """Return the English display name for a Pokemon species."""
 
     for name_entry in species_data["names"]:
         if name_entry["language"]["name"] == "en":
@@ -92,7 +92,7 @@ def get_resource_id(resource_url: str) -> int:
     )
 
 def get_base_stats(pokemon_data: dict) -> dict[str, int]:
-    """Return base stats keyed by PokéAPI stat name."""
+    """Return base stats keyed by PokeAPI stat name."""
 
     return {
         stat_entry["stat"]["name"]: stat_entry["base_stat"]
@@ -100,7 +100,7 @@ def get_base_stats(pokemon_data: dict) -> dict[str, int]:
     }
 
 def get_pokedex_numbers() -> list[int]:
-    """Retrieve all Pokémon species IDs available from PokéAPI."""
+    """Retrieve all Pokemon species IDs available from PokeAPI."""
 
     pokedex_numbers = []
     next_url = POKEMON_SPECIES_LIST_URL
@@ -121,7 +121,7 @@ def validate_pokedex(
     pokemon: list[Pokemon],
     expected_pokedex_numbers: list[int],
 ) -> None:
-    """Validate that an imported Pokédex is complete and internally consistent."""
+    """Validate that an imported Pokedex is complete and internally consistent."""
 
     actual_pokedex_numbers = [
         entry.pokedex_number
@@ -130,14 +130,14 @@ def validate_pokedex(
 
     if actual_pokedex_numbers != expected_pokedex_numbers:
         raise ValueError(
-            "Imported Pokédex numbers do not match "
+            "Imported Pokedex numbers do not match "
             "the discovered Pokédex numbers."
         )
 
     for entry in pokemon:
         if not entry.types:
             raise ValueError(
-                f"{entry.name} does not have any Pokémon types."
+                f"{entry.name} does not have any Pokemon types."
             )
 
         stats = [
@@ -155,7 +155,7 @@ def validate_pokedex(
             )
 
 def import_pokemon(pokedex_number: int) -> Pokemon:
-    """Fetch and transform one Pokémon into our application's format."""
+    """Fetch and transform one Pokemon into our application's format."""
 
     species_data = fetch_json(
         f"{POKEAPI_BASE_URL}/pokemon-species/{pokedex_number}"
@@ -172,7 +172,7 @@ def import_pokemon(pokedex_number: int) -> Pokemon:
 
     return Pokemon(
         pokedex_number=species_data["id"],
-        name=species_data["name"].title(),
+        name=get_english_name(species_data),
         generation=get_resource_id(
             species_data["generation"]["url"]
         ),
@@ -189,7 +189,7 @@ def import_pokemon(pokedex_number: int) -> Pokemon:
         is_mythical=species_data["is_mythical"],
     )
 
-def import_pokedex(pokedex_numbers:  list[int]) -> list[Pokemon]:
+def import_pokedex(pokedex_numbers: list[int]) -> list[Pokemon]:
     """Import multiple Pokemon by National Pokedex number."""
 
     imported_pokemon = []
@@ -234,7 +234,7 @@ if __name__ == "__main__":
     pokedex_numbers = get_pokedex_numbers()
 
     print(
-        f"Discovered {len(pokedex_numbers)} Pokémon species."
+        f"Discovered {len(pokedex_numbers)} Pokemon species."
     )
 
     pokemon = import_pokedex(pokedex_numbers)
@@ -244,6 +244,7 @@ if __name__ == "__main__":
         pokedex_numbers,
     )
 
+    # Write imports to a preview file for verifications before replacing pokemon.json
     preview_file = (
         REPOSITORY_ROOT
         / "data"
@@ -256,6 +257,6 @@ if __name__ == "__main__":
     )
 
     print(
-        f"Wrote {len(pokemon)} Pokémon to "
+        f"Wrote {len(pokemon)} Pokemon to "
         f"{preview_file}"
     )

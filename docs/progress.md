@@ -870,3 +870,41 @@ Core functional features are now complete:
 - Run final lint/build/backend tests.
 - Prepare production environment variables and CORS.
 - Deploy frontend/backend.
+
+
+## Session 15 — August 21, 2026
+
+### V1 Code Cleanup
+
+- Reviewed the major backend and frontend implementation files.
+- Updated and clarified model/service docstrings where useful.
+- Standardized project-written terminology to Pokemon / Pokedex / PokeAPI.
+- Corrected the randomizer service's stale default shiny chance to 1%.
+- Kept generation filtering logic explicit rather than over-abstracting it.
+- Improved formatting and organization across backend files.
+- Updated the importer to use the English display-name helper.
+- Preserved the intentional pokemon_preview.json verification workflow.
+- Cleaned and reviewed backend tests.
+- Added/updated regression coverage for importer display-name behavior.
+- Confirmed the full backend pytest suite passes.
+- Reviewed frontend API contract types.
+- Made the frontend API base URL configurable with VITE_API_BASE_URL.
+- Extracted duplicated GenerateRequest construction in App.
+- Added protection against an unexpectedly empty reroll response.
+- Extracted repeated optional-number parsing in FilterPanel.
+- Cleaned PokemonCard helpers and frontend formatting.
+- Reviewed artwork/type utilities and kept them intentionally simple.
+- Confirmed frontend lint/build and application behavior are working.
+
+### Remaining V1 Work
+
+- UI and responsive-design polish.
+- Improve loading/reroll interaction where useful.
+- Review artwork-loading/fallback presentation if worthwhile.
+- Final README/project documentation update.
+- Add current screenshots and fan-project disclaimer.
+- Deployment configuration:
+  - production frontend API URL
+  - backend CORS origin
+  - hosting/build/start configuration
+- Deploy v1.

@@ -1,4 +1,4 @@
-import type { Pokemon } from "./pokemon";
+import type { Pokemon } from './pokemon'
 
 export interface GeneratedPokemon {
     pokemon: Pokemon

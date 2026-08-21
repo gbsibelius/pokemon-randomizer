@@ -18,6 +18,10 @@ interface FilterPanelProps {
   onShinyChanceChange: (value: number | null) => void
 }
 
+function parseOptionalNumber(value: string): number | null {
+  return value === '' ? null : Number(value)
+}
+
 function FilterPanel({
   excludeLegendaries,
   excludeMythicals,
@@ -88,13 +92,7 @@ function FilterPanel({
             min="0"
             value={minBST ?? ''}
             onChange={(event) => {
-              const value = event.target.value
-
-              onMinBSTChange(
-                value === ''
-                  ? null
-                  : Number(value)
-              )
+              onMinBSTChange(parseOptionalNumber(event.target.value))
             }}
           />
         </label>
@@ -107,13 +105,7 @@ function FilterPanel({
             min="0"
             value={maxBST ?? ''}
             onChange={(event) => {
-              const value = event.target.value
-
-              onMaxBSTChange(
-                value === ''
-                  ? null
-                  : Number(value)
-              )
+              onMaxBSTChange(parseOptionalNumber(event.target.value))
             }}
           />
         </label>
@@ -127,13 +119,7 @@ function FilterPanel({
             max="100"
             value={shinyChance ?? ''}
             onChange={(event) => {
-              const value = event.target.value
-
-              onShinyChanceChange(
-                value === ''
-                  ? null
-                  : Number(value)
-              )
+              onShinyChanceChange(parseOptionalNumber(event.target.value))
             }}
           />
         </label>

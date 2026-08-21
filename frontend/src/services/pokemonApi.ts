@@ -1,7 +1,8 @@
 import type { GenerateRequest } from '../types/generateRequest'
 import type { GeneratedPokemon } from '../types/generatedPokemon'
 
-const API_BASE_URL = 'http://127.0.0.1:8000'
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ?? 'http://127.0.0.1:8000'
 
 export async function generatePokemon(
   request: GenerateRequest,
@@ -19,7 +20,7 @@ export async function generatePokemon(
 
   if (!response.ok) {
     throw new Error(
-      'Unable to generate Pokémon with these filters.',
+      'Unable to generate Pokemon with these filters.',
     )
   }
 

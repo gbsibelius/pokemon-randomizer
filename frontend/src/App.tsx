@@ -29,7 +29,7 @@ function App() {
   const [shinyChance, setShinyChance] = useState<number | null>(1)
   const generateButtonLabel =
     generatedPokemon.length === 0
-      ? 'Generate Pokémon'
+      ? 'Generate Pokemon'
       : 'Reroll All'
 
   useEffect(() => {
@@ -45,24 +45,31 @@ function App() {
     )
   }
 
+  function buildGenerateRequest(
+    count: number,
+    excludePokedexNumbers: number[] | null,
+  ): GenerateRequest {
+    return {
+      count,
+      generations:
+        selectedGenerations.length === 0
+          ? null
+          : selectedGenerations,
+      exclude_legendaries: excludeLegendaries,
+      exclude_mythicals: excludeMythicals,
+      min_bst: minBST,
+      max_bst: maxBST,
+      shiny_chance: shinyChance ?? 1,
+      exclude_pokedex_numbers: excludePokedexNumbers,
+    }
+  }
+
   async function handleGenerateClick() {
     setIsLoading(true)
     setError(null)
 
     try {
-      const request: GenerateRequest = {
-        count: 3,
-        generations:
-          selectedGenerations.length === 0
-            ? null
-            : selectedGenerations,
-        exclude_legendaries: excludeLegendaries,
-        exclude_mythicals: excludeMythicals,
-        min_bst: minBST,
-        max_bst: maxBST,
-        shiny_chance: shinyChance ?? 1,
-        exclude_pokedex_numbers: null
-      }
+      const request = buildGenerateRequest(3, null)
       const results = await generatePokemon(request)
 
       setGeneratedPokemon(results)
@@ -86,22 +93,14 @@ function App() {
     )
 
     try {
-      const request: GenerateRequest = {
-        count: 1,
-        generations:
-          selectedGenerations.length === 0
-            ? null
-            : selectedGenerations,
-        exclude_legendaries: excludeLegendaries,
-        exclude_mythicals: excludeMythicals,
-        min_bst: minBST,
-        max_bst: maxBST,
-        shiny_chance: shinyChance ?? 1,
-        exclude_pokedex_numbers: excludedNumbers,
-      }
+      const request = buildGenerateRequest(1, excludedNumbers)
 
       const rerollResults = await generatePokemon(request)
       const rerolledPokemon = rerollResults[0]
+
+      if (!rerolledPokemon) {
+        throw new Error('Reroll did not return a Pokemon.')
+      }
 
       setGeneratedPokemon((currentPokemon) =>
         currentPokemon.map((result, currentIndex) =>
@@ -114,7 +113,7 @@ function App() {
       setError(
         error instanceof Error
           ? error.message
-          : "An unexpected error occurred."
+          : 'An unexpected error occurred.'
       )
     } finally {
       setIsLoading(false)
@@ -142,12 +141,12 @@ function App() {
         >
           {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
         </button>
-        <p className="eyebrow">Pokémon Randomizer</p>
+        <p className="eyebrow">Pokemon Randomizer</p>
 
         <h1>Randomize your starters!</h1>
 
         <p className="description">
-          Generate 3 random Pokémon using customizable filters.
+          Generate 3 random Pokemon using customizable filters.
         </p>
 
         <FilterPanel
@@ -170,7 +169,7 @@ function App() {
           onClick={handleGenerateClick}
           disabled={isLoading}
         >
-          {isLoading ? "Generating..." : generateButtonLabel}
+          {isLoading ? 'Generating...' : generateButtonLabel}
         </button>
 
         {error && (

@@ -5,7 +5,11 @@ from app.models.pokemon import Pokemon
 from app.models.generated_pokemon import GeneratedPokemon
 from app.models.generate_request import GenerateRequest
 from app.services.pokemon_loader import load_pokemon
-from app.services.randomizer_service import generate_pokemon, create_generated_pokemon
+from app.services.randomizer_service import (
+    generate_pokemon,
+    create_generated_pokemon,
+)
+
 
 app = FastAPI(title="Pokemon Randomizer API")
 app.add_middleware(
@@ -36,7 +40,7 @@ def get_all_pokemon() -> list[Pokemon]:
 def generate_random_pokemon(
     request: GenerateRequest,
 ) -> list[GeneratedPokemon]:
-    """Generate three unique random Pokemon according to supplied rules."""
+    """Generate unique random Pokemon according to supplied rules."""
 
     try:
         selected_pokemon = generate_pokemon(

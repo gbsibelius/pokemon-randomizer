@@ -10,9 +10,9 @@ interface PokemonCardProps {
   isLoading: boolean
 }
 
-function calculateStatPercentage(stat: number): number {
-  const MAX_VISUAL_STAT = 200
+const MAX_VISUAL_STAT = 200
 
+function calculateStatPercentage(stat: number): number {
   return Math.min((stat / MAX_VISUAL_STAT) * 100, 100)
 }
 
@@ -53,16 +53,20 @@ function calculateBST(pokemon: Pokemon): number {
 
 function getPokemonStats(pokemon: Pokemon) {
   return [
-    { label: "HP", value: pokemon.hp },
-    { label: "ATK", value: pokemon.attack },
-    { label: "DEF", value: pokemon.defense },
-    { label: "SP. ATK", value: pokemon.special_attack },
-    { label: "SP. DEF", value: pokemon.special_defense },
-    { label: "SPD", value: pokemon.speed },
+    { label: 'HP', value: pokemon.hp },
+    { label: 'ATK', value: pokemon.attack },
+    { label: 'DEF', value: pokemon.defense },
+    { label: 'SP. ATK', value: pokemon.special_attack },
+    { label: 'SP. DEF', value: pokemon.special_defense },
+    { label: 'SPD', value: pokemon.speed },
   ]
 }
 
-function PokemonCard({ generatedPokemon, onReroll, isLoading }: PokemonCardProps) {
+function PokemonCard({
+  generatedPokemon,
+  onReroll,
+  isLoading,
+}: PokemonCardProps) {
   const { pokemon, is_shiny } = generatedPokemon
 
   return (

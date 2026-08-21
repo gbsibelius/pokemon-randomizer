@@ -1,9 +1,10 @@
-import app.tools.import_pokemon as importer
+from pathlib import Path
+
 import pytest
 
+import app.tools.import_pokemon as importer
 from app.tools.import_pokemon import get_resource_id
 from app.models.pokemon import Pokemon
-from pathlib import Path
 from app.services.pokemon_loader import load_pokemon
 
 
@@ -260,6 +261,24 @@ def test_get_pokedex_numbers_follows_pagination(
 
     assert result == [1, 2, 3]
 
+def test_get_english_name_returns_english_display_name() -> None:
+    species_data = {
+        "names": [
+            {
+                "name": "Pantimos",
+                "language": {"name": "de"},
+            },
+            {
+                "name": "Mr. Mime",
+                "language": {"name": "en"},
+            },
+        ]
+    }
+
+    result = importer.get_english_name(species_data)
+
+    assert result == "Mr. Mime"
+
 def test_validate_pokedex_accepts_complete_catalog() -> None:
     pokemon = [
         Pokemon(
@@ -317,7 +336,7 @@ def test_validate_pokedex_rejects_missing_pokemon() -> None:
 
     with pytest.raises(
         ValueError,
-        match="Pokédex numbers do not match",
+        match="Pokedex numbers do not match",
     ):
         importer.validate_pokedex(
             pokemon,
