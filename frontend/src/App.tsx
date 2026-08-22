@@ -135,12 +135,33 @@ function App() {
   return (
     <main className="app">
       <section className="hero">
+
         <button
           className="theme-toggle"
           onClick={handleThemeToggle}
+          aria-label={
+            theme === 'light'
+              ? 'Switch to dark mode'
+              : 'Switch to light mode'
+          }
+          title={
+            theme === 'light'
+              ? 'Switch to dark mode'
+              : 'Switch to light mode'
+          }
         >
-          {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
+          <span className="theme-icon">☀</span>
+
+          <span className="theme-toggle-track">
+            <span
+              className={`theme-toggle-thumb ${theme === 'dark' ? 'theme-toggle-thumb-dark' : ''
+                }`}
+            />
+          </span>
+
+          <span className="theme-icon">☾</span>
         </button>
+
         <p className="eyebrow">Pokemon Randomizer</p>
 
         <h1>Randomize your starters!</h1>
@@ -169,7 +190,33 @@ function App() {
           onClick={handleGenerateClick}
           disabled={isLoading}
         >
-          {isLoading ? 'Generating...' : generateButtonLabel}
+          {!isLoading && generatedPokemon.length > 0 && (
+            <svg
+              className="reroll-icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                d="M19 7a8 8 0 1 0 1 8"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+              <path
+                d="M19 3v4h-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          )}
+
+          <span>
+            {isLoading ? 'Generating...' : generateButtonLabel}
+          </span>
         </button>
 
         {error && (

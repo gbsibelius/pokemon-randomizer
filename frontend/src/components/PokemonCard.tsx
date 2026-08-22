@@ -137,19 +137,40 @@ function PokemonCard({
         ))}
       </div>
 
-      <button
-        className="reroll-button"
-        onClick={onReroll}
-        disabled={isLoading}
-      >
-        Reroll
-      </button>
-
       <div className="pokemon-meta">
         <span>Gen {pokemon.generation}</span>
 
         <span>BST: {calculateBST(pokemon)}</span>
       </div>
+
+      <button
+        className="reroll-button"
+        onClick={onReroll}
+        disabled={isLoading}
+      >
+        <svg
+          className="reroll-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            d="M19 7a8 8 0 1 0 1 8"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <path
+            d="M19 3v4h-4"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+        <span>Reroll</span>
+      </button>
     </div>
   )
 }

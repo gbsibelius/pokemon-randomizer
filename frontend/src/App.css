@@ -10,30 +10,49 @@
   width: 100%;
   max-width: 950px;
   text-align: center;
+  position: relative;
 }
 
 .eyebrow {
-  font-size: 0.9rem;
+  font-size: 0.6rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
 }
 
 .hero h1 {
-  margin: 0.5rem 0 1rem;
-  font-size: 3rem;
+  margin: 0.75rem 0 1rem;
+  font-size: 1.8rem;
+  line-height: 1.4;
 }
 
 .description {
   margin-bottom: 2rem;
-  font-size: 1.1rem;
+  font-size: 0.65rem;
+  line-height: 1.6;
 }
 
 .generate-button {
-  padding: 0.9rem 1.5rem;
-  font-size: 1rem;
+  padding: 0.8rem 1rem;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
   font-weight: 700;
+
+  border-radius: 8px;
   cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.generate-button .reroll-icon {
+  display: block;
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+  transform: translateY(-1px);
 }
 
 .generate-button,
@@ -62,13 +81,83 @@
 }
 
 .theme-toggle {
-  padding: 0.5rem 0.8rem;
+  position: absolute;
+  top: 0;
+  right: 0;
 
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  padding: 0.4rem 0.55rem;
   background: var(--surface-background);
   color: var(--primary-text);
-
   border: 1px solid var(--border-color);
-  border-radius: 6px;
+  border-radius: 999px;
 
   cursor: pointer;
+}
+
+.theme-icon {
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.theme-toggle-track {
+  position: relative;
+  width: 2rem;
+  height: 1rem;
+
+  background: var(--track-background);
+  border-radius: 999px;
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 0.125rem;
+  left: 0.125rem;
+
+  width: 0.75rem;
+  height: 0.75rem;
+
+  background: var(--primary-text);
+  border-radius: 50%;
+
+  transition: transform 0.2s ease;
+}
+
+.theme-toggle-thumb-dark {
+  transform: translateX(1rem);
+}
+
+@media (max-width: 650px) {
+  .app {
+    padding: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.35rem;
+  }
+
+  .description {
+    font-size: 0.58rem;
+  }
+
+  .pokemon-results {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 425px) {
+  .theme-toggle {
+    transform: scale(0.8);
+    transform-origin: top right;
+    top: 0;
+    right: 0;
+  }
+
+  .eyebrow {
+    padding-top: 1.25rem;
+  }
 }

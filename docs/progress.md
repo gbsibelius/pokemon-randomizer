@@ -908,3 +908,43 @@ Core functional features are now complete:
   - backend CORS origin
   - hosting/build/start configuration
 - Deploy v1.
+
+
+## Session 16 — August 22, 2026
+
+### V1 UI Polish
+
+- Reworked the frontend typography around the Press Start 2P pixel font.
+- Tuned font sizes and spacing to keep the retro style readable.
+- Reorganized the filter panel for clearer visual hierarchy.
+- Moved generation filtering ahead of Legendary/Mythical exclusions.
+- Added helper text clarifying that leaving generations unchecked includes all generations.
+- Improved BST and shiny filter spacing and sizing.
+- Redesigned the light/dark mode control as a compact sun/moon toggle.
+- Repositioned the theme toggle so it no longer adds unnecessary vertical weight.
+- Improved the primary Generate/Reroll All button styling.
+- Added reroll icons to both full-set and individual-card reroll buttons.
+- Refined Pokemon card footer/action layout.
+- Re-centered Pokemon artwork after card flex-layout changes.
+- Adjusted shiny-indicator alignment for the new font.
+- Tested and polished responsive layouts at:
+  - 600px
+  - 480px
+  - 375px
+  - 320px
+- Added responsive breakpoints for narrow layouts and mobile theme-toggle placement.
+- Verified both light and dark themes visually.
+- Kept the current global loading behavior for v1.
+- Did not add artwork fallback handling because no broken-image behavior was observed during testing.
+
+### Remaining V1 Work
+
+- Final README/project documentation update.
+- Add current screenshots.
+- Add unofficial fan-project disclaimer.
+- Review roadmap/progress documentation for final accuracy.
+- Deployment configuration:
+  - production frontend API URL
+  - backend CORS origin
+  - hosting/build/start configuration
+- Deploy v1.

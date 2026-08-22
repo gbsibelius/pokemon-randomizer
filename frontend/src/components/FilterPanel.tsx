@@ -38,6 +38,32 @@ function FilterPanel({
 }: FilterPanelProps) {
   return (
     <div className="filter-panel">
+
+      <fieldset className="generation-filter">
+        <legend>Generation Filter</legend>
+
+        <span className="generation-hint">
+          (Leave unchecked to include all generations)
+        </span>
+
+        <div className="generation-options">
+          {GENERATIONS.map((generation) => (
+            <label
+              className="generation-option"
+              key={generation}
+            >
+              <input
+                type="checkbox"
+                checked={selectedGenerations.includes(generation)}
+                onChange={() => onGenerationChange(generation)}
+              />
+
+              Gen {generation}
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
       <div className="filter-options">
         <label>
           <input
@@ -61,27 +87,6 @@ function FilterPanel({
           Exclude Mythical Pokemon
         </label>
       </div>
-
-      <fieldset className="generation-filter">
-        <legend>Generations</legend>
-
-        <div className="generation-options">
-          {GENERATIONS.map((generation) => (
-            <label
-              className="generation-option"
-              key={generation}
-            >
-              <input
-                type="checkbox"
-                checked={selectedGenerations.includes(generation)}
-                onChange={() => onGenerationChange(generation)}
-              />
-
-              Gen {generation}
-            </label>
-          ))}
-        </div>
-      </fieldset>
 
       <div className="bst-filter">
         <label>
@@ -122,10 +127,11 @@ function FilterPanel({
               onShinyChanceChange(parseOptionalNumber(event.target.value))
             }}
           />
+
+          <span className="filter-hint">
+            (Default: 1%)
+          </span>
         </label>
-        <span className="filter-hint">
-          (Default: 1%)
-        </span>
       </div>
     </div>
   )
