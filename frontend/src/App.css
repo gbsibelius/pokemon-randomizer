@@ -161,3 +161,19 @@
     padding-top: 1.25rem;
   }
 }
+
+.site-footer {
+  max-width: 700px;
+  margin: 2.5rem auto 0;
+  padding-top: 1rem;
+
+  border-top: 1px solid var(--border-color);
+  color: var(--secondary-text);
+
+  font-size: 0.5rem;
+  line-height: 1.6;
+}
+
+.site-footer p {
+  margin: 0.35rem 0;
+}

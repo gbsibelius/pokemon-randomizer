@@ -1,37 +1,44 @@
-# Pokémon Randomizer Roadmap
+# Pokemon Randomizer Roadmap
 
-This document tracks potential features and larger design ideas for the
-Pokémon Randomizer. Items here are not necessarily committed requirements;
-they are ideas to evaluate and prioritize as the project develops.
+This document tracks completed v1 features and potential future additions
+for the Pokemon Randomizer. Future items are ideas to evaluate rather than
+committed requirements.
 
-## Current MVP
+## V1 Features
 
-- Generate 3 unique random Pokémon.
+- Generate 3 unique random Pokemon.
 - Filter by one or more generations.
-- Optionally exclude Legendary Pokémon.
-- Optionally exclude Mythical Pokémon.
+- Optionally exclude Legendary Pokemon.
+- Optionally exclude Mythical Pokemon.
 - Filter by minimum and maximum BST.
+- Configure shiny probability.
+- Display shiny artwork and a shiny indicator.
+- Reroll individual Pokemon while preserving the other generated cards.
+- Reroll the full generated set.
+- Prevent single-card rerolls from returning currently visible species.
+- Preserve active filters during rerolls.
 - Display:
+  - Official artwork
   - Name
-  - Type(s)
+  - Type(s) and type icons
   - Generation
-  - Base stats
+  - All six base stats
+  - Stat-strength bars
   - BST
+- Light and dark themes with saved preference.
+- Responsive desktop and mobile layouts.
 - Gracefully handle loading and API errors.
 
-## Near-Term Features
+## Release / Deployment
 
-### Pokémon Card Design
+- Deploy the FastAPI backend.
+- Deploy the React frontend.
+- Configure the production API URL.
+- Configure production CORS.
+- Perform production smoke testing.
+- Add the live URL and production screenshots to the README.
 
-Improve the visual presentation of generated Pokémon.
-
-Potential additions:
-
-- Pokémon artwork or sprites.
-- Better stat presentation.
-- Visually distinguish BST from individual stats.
-- Type-specific styling.
-- Responsive/mobile-friendly cards.
+## Near-Term Ideas
 
 ### Ultra Beast Support
 
@@ -40,41 +47,10 @@ exclude them from generation.
 
 Design questions:
 
-- Add `is_ultra_beast` to the Pokémon data/model.
+- Add `is_ultra_beast` to the Pokemon data/model.
 - Determine how Ultra Beast metadata should be populated by the importer.
 - Decide whether Ultra Beasts should be independent from the Legendary and
   Mythical filters.
-
-### Shiny Pokémon
-
-Allow generated results to sometimes be shiny.
-
-Potential behavior:
-
-- Configurable shiny probability.
-- Display whether a generated Pokémon is shiny.
-- Eventually display shiny artwork when available.
-
-Design question:
-
-A shiny result is a property of a particular generation result rather than
-an inherent property of the Pokémon species, so consider introducing a
-generated-result/card model rather than adding `is_shiny` directly to the
-base `Pokemon` model.
-
-### Rerolling
-
-Allow users to:
-
-- Reroll all generated Pokémon.
-- Reroll a single Pokémon card.
-
-Consider how rerolls interact with:
-
-- Current filters.
-- Duplicate prevention.
-- Seeded generation.
-- Shiny rolls.
 
 ## Seeded / Reproducible Randomization
 
@@ -84,7 +60,7 @@ reproduced.
 Potential use case:
 
 Two people using the same seed and settings should be able to reproduce the
-same sequence of Pokémon.
+same sequence of Pokemon.
 
 ### Duplicate Prevention
 
@@ -96,17 +72,17 @@ prevent duplicates across separate requests.
 
 Possible designs to investigate:
 
-- Deterministically shuffle the eligible Pokémon pool using the seed, then
-  consume Pokémon from that shuffled pool.
-- Track previously generated Pokémon during a seeded session.
+- Deterministically shuffle the eligible Pokemon pool using the seed, then
+  consume Pokemon from that shuffled pool.
+- Track previously generated Pokemon during a seeded session.
 - Reset/rebuild the pool when filters change.
 - Define how single-card rerolls affect the deterministic sequence.
 
 ## Longer-Term Ideas
 
 - Allow generation counts other than 3.
-- Support alternate Pokémon forms/variants.
+- Support alternate Pokemon forms/variants.
 - Shareable seed/configuration links.
-- Additional filters such as Pokémon type.
+- Additional filters such as Pokemon type.
 - Improved frontend validation and backend error messages.
-- Deployment/public hosting.
+- Additional creator-focused randomizer tools.

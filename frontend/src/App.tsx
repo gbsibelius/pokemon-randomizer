@@ -235,6 +235,18 @@ function App() {
             />
           ))}
         </div>
+
+        <footer className="site-footer">
+          <p>
+            Unofficial fan project. This project is not affiliated with or
+            endorsed by Nintendo, Game Freak, Creatures Inc., or The Pokemon
+            Company.
+          </p>
+          <p>
+            Pokemon-related trademarks and intellectual property belong to
+            their respective owners.
+          </p>
+        </footer>
       </section>
     </main>
   )
