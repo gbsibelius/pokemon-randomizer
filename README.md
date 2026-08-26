@@ -197,7 +197,7 @@ Possible post-v1 additions include:
 
 ## Live Demo
 
-Coming soon.
+https://pokemon-randomizer-4i7w.onrender.com
 
 ## Disclaimer
 

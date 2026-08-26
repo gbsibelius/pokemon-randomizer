@@ -948,3 +948,70 @@ Core functional features are now complete:
   - backend CORS origin
   - hosting/build/start configuration
 - Deploy v1.
+
+
+## Session 17 — August 26, 2026
+
+### V1 Deployment
+
+- Prepared the FastAPI backend for production deployment.
+- Updated CORS configuration to support a production frontend origin through the `FRONTEND_ORIGIN` environment variable.
+- Preserved localhost origins for local development.
+- Deployed the FastAPI backend to Render as a Web Service.
+- Configured the backend deployment with:
+  - Repository-root deployment so `data/pokemon.json` remains accessible.
+  - `pip install -r backend/requirements.txt` build command.
+  - Uvicorn bound to `0.0.0.0` and Render's `$PORT`.
+  - Root API endpoint as the health check.
+- Verified the deployed backend through FastAPI's public `/docs` interface.
+- Confirmed `/generate` successfully returns randomized Pokemon in production.
+- Investigated temporary Render routing errors during the initial deployment and confirmed requests stabilized after the service finished starting.
+
+### Frontend Deployment
+
+- Deployed the React + TypeScript + Vite frontend to Render as a Static Site.
+- Configured:
+  - `frontend` as the frontend root directory.
+  - `npm ci && npm run build` as the production build command.
+  - `dist` as the published build directory.
+- Added the production backend URL through `VITE_API_BASE_URL`.
+- Added the deployed frontend URL to the backend through `FRONTEND_ORIGIN`.
+- Diagnosed and fixed a CORS mismatch caused by an incorrect frontend-origin URL.
+- Confirmed successful production communication between the frontend and backend.
+
+### Production Testing
+
+- Verified generation with default settings.
+- Verified generation filters produce eligible Pokemon.
+- Verified full-set rerolling.
+- Verified individual-card rerolling.
+- Verified shiny artwork.
+- Verified light and dark themes.
+- Verified theme preference persists after refreshing.
+- Verified responsive behavior on a physical mobile device.
+- Investigated slow artwork loading.
+  - Confirmed artwork is fetched directly from the PokeAPI sprites repository on GitHub rather than through the Render backend.
+  - Confirmed command-line and alternate-browser image requests were fast.
+  - Isolated the slowdown to an overloaded Opera GX browser session with many open tabs.
+  - Confirmed artwork loads normally in a fresh browser session.
+- Updated the browser tab title from the default Vite `frontend` title to `Pokemon Randomizer`.
+
+### Current Project State
+
+Pokemon Randomizer v1 is now publicly deployed.
+
+The production application consists of:
+
+- A React/Vite static frontend hosted on Render.
+- A FastAPI backend hosted on Render.
+- A local 1,025-species Pokemon dataset used by the backend at runtime.
+- External official artwork served from the PokeAPI sprites repository.
+
+The free Render backend may spin down after inactivity and automatically wakes when a new request arrives.
+
+### Post-V1 / Follow-Up
+
+- Add the production URL to the README.
+- Optionally add a production mobile screenshot.
+- Consider upgrading the backend hosting plan if usage grows or cold-start delays become undesirable.
+- Begin evaluating post-v1 roadmap features based on personal priorities and user/creator feedback.
