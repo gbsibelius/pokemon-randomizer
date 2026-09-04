@@ -15,48 +15,37 @@ def test_get_resource_id_extracts_numeric_id() -> None:
 
     assert result == 3
 
+
 def test_import_pokemon_transforms_api_data(
     monkeypatch,
 ) -> None:
     species_response = {
-    "id": 1,
-    "name": "bulbasaur",
-    "generation": {
-        "url": "https://pokeapi.co/api/v2/generation/1/"
-    },
-    "is_legendary": False,
-    "is_mythical": False,
-    "names": [
-        {
-            "name": "Bulbasaur",
-            "language": {
-                "name": "en"
-            },
-        }
-    ],
-    "varieties": [
-        {
-            "is_default": True,
-            "pokemon": {
-                "name": "bulbasaur",
-                "url": "https://pokeapi.co/api/v2/pokemon/1/",
-            },
-        }
-    ],
-}
+        "id": 1,
+        "name": "bulbasaur",
+        "generation": {"url": "https://pokeapi.co/api/v2/generation/1/"},
+        "is_legendary": False,
+        "is_mythical": False,
+        "names": [
+            {
+                "name": "Bulbasaur",
+                "language": {"name": "en"},
+            }
+        ],
+        "varieties": [
+            {
+                "is_default": True,
+                "pokemon": {
+                    "name": "bulbasaur",
+                    "url": "https://pokeapi.co/api/v2/pokemon/1/",
+                },
+            }
+        ],
+    }
 
     pokemon_response = {
         "types": [
-            {
-                "type": {
-                    "name": "grass"
-                }
-            },
-            {
-                "type": {
-                    "name": "poison"
-                }
-            },
+            {"type": {"name": "grass"}},
+            {"type": {"name": "poison"}},
         ],
         "stats": [
             {
@@ -114,6 +103,7 @@ def test_import_pokemon_transforms_api_data(
     assert pokemon.special_defense == 65
     assert pokemon.speed == 45
 
+
 def test_get_base_stats_maps_stats_by_name() -> None:
     pokemon_data = {
         "stats": [
@@ -134,6 +124,7 @@ def test_get_base_stats_maps_stats_by_name() -> None:
         "hp": 45,
         "attack": 49,
     }
+
 
 def test_import_pokedex_imports_requested_pokemon(
     monkeypatch,
@@ -168,10 +159,8 @@ def test_import_pokedex_imports_requested_pokemon(
 
     assert imported_numbers == [1, 4, 7]
     assert len(result) == 3
-    assert [
-        pokemon.pokedex_number
-        for pokemon in result
-    ] == [1, 4, 7]
+    assert [pokemon.pokedex_number for pokemon in result] == [1, 4, 7]
+
 
 def test_write_pokemon_json_can_be_loaded_back(
     tmp_path: Path,
@@ -218,6 +207,7 @@ def test_write_pokemon_json_can_be_loaded_back(
 
     assert loaded_pokemon == pokemon
 
+
 def test_get_pokedex_numbers_follows_pagination(
     monkeypatch,
 ) -> None:
@@ -261,6 +251,7 @@ def test_get_pokedex_numbers_follows_pagination(
 
     assert result == [1, 2, 3]
 
+
 def test_get_english_name_returns_english_display_name() -> None:
     species_data = {
         "names": [
@@ -278,6 +269,7 @@ def test_get_english_name_returns_english_display_name() -> None:
     result = importer.get_english_name(species_data)
 
     assert result == "Mr. Mime"
+
 
 def test_validate_pokedex_accepts_complete_catalog() -> None:
     pokemon = [
@@ -316,6 +308,7 @@ def test_validate_pokedex_accepts_complete_catalog() -> None:
         [1, 2],
     )
 
+
 def test_validate_pokedex_rejects_missing_pokemon() -> None:
     pokemon = [
         Pokemon(
@@ -342,6 +335,7 @@ def test_validate_pokedex_rejects_missing_pokemon() -> None:
             pokemon,
             [1, 2],
         )
+
 
 def test_load_pokemon_rejects_non_array_json(
     tmp_path: Path,

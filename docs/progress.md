@@ -1015,3 +1015,61 @@ The free Render backend may spin down after inactivity and automatically wakes w
 - Optionally add a production mobile screenshot.
 - Consider upgrading the backend hosting plan if usage grows or cold-start delays become undesirable.
 - Begin evaluating post-v1 roadmap features based on personal priorities and user/creator feedback.
+
+
+## Session 18 — September 4, 2026
+
+### Ability Randomizer Planning and Groundwork
+
+- Defined the initial Ability Randomizer v1 scope:
+  - Generate 3 unique abilities.
+  - Display ability names and descriptions.
+  - Support individual-card rerolls.
+  - Support Reroll All.
+  - Use a five-tier custom ability-strength system:
+    - Poke Ball
+    - Great Ball
+    - Ultra Ball
+    - Master Ball
+    - Luxury Ball
+  - Use two-step weighted randomization:
+    1. Roll an ability tier.
+    2. Select an eligible ability from that tier.
+  - Keep manually curated ability tiers separate from imported PokeAPI data.
+  - Consider tier-specific result animations as a stretch goal.
+- Added `docs/ability-randomizer-design.md` to document the feature design.
+- Created and pushed the `feature/ability-randomizer` branch.
+- Reviewed the feature-branch workflow and how it will eventually merge into `main` through a pull request.
+
+### Backend Groundwork
+
+- Added the new `Ability` Pydantic model with:
+  - ID
+  - Name
+  - Description
+- Extracted shared PokeAPI HTTP logic from the Pokemon importer into `pokeapi_client.py`.
+- Updated the Pokemon importer to use the shared PokeAPI client.
+- Verified the existing backend test suite remained green after the refactor.
+- Added the initial Ability importer.
+- Added helpers for retrieving:
+  - English ability names.
+  - English short descriptions.
+- Successfully imported a real ability from PokeAPI and transformed it into the application's `Ability` model.
+- Added a mocked Ability importer test.
+- Verified the complete backend test suite passes with 38 tests.
+
+### Current Ability Randomizer State
+
+- Ability data can now be fetched from PokeAPI and transformed into the application's internal model.
+- Ability importing reuses the shared PokeAPI client.
+- No local ability dataset has been generated yet.
+- Ability tiers and weighted randomization have not yet been implemented.
+
+### Next Goals
+
+- Discover/import the complete set of relevant PokeAPI abilities.
+- Decide how to handle non-main-series abilities.
+- Add batch ability importing.
+- Generate and validate a local `abilities.json` dataset.
+- Create the manually curated ability-tier dataset.
+- Begin implementing two-step weighted ability generation.

@@ -1,70 +1,14 @@
 import json
-import time
 from pathlib import Path
-from urllib.request import Request, urlopen
-from urllib.error import HTTPError, URLError
 
 from app.models.pokemon import Pokemon
+from app.tools.pokeapi_client import POKEAPI_BASE_URL, fetch_json
 
-
-POKEAPI_BASE_URL = "https://pokeapi.co/api/v2"
 POKEMON_SPECIES_LIST_URL = (
     f"{POKEAPI_BASE_URL}/pokemon-species?limit=100"
 )
 REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
-MAX_RETRIES = 3
-RETRY_DELAY_SECONDS = 2
 
-
-def fetch_json(url: str) -> dict:
-    """Fetch a JSON response from the provided URL."""
-
-    request = Request(
-        url,
-        headers={
-            "User-Agent": "pokemon-randomizer/0.1",
-            "Accept": "application/json",
-        },
-    )
-
-    for attempt in range(1, MAX_RETRIES + 1):
-        try:
-            with urlopen(
-                request,
-                timeout=10,
-            ) as response:
-                return json.load(response)
-
-        except HTTPError as error:
-            if error.code not in {
-                429,
-                500,
-                502,
-                503,
-                504,
-            }:
-                raise
-
-            if attempt == MAX_RETRIES:
-                raise
-
-            print(
-                f"HTTP {error.code}. "
-                f"Retrying ({attempt}/{MAX_RETRIES})..."
-            )
-
-        except (URLError, TimeoutError) as error:
-            if attempt == MAX_RETRIES:
-                raise
-
-            print(
-                f"Network error: {error}. "
-                f"Retrying ({attempt}/{MAX_RETRIES})..."
-            )
-
-        time.sleep(RETRY_DELAY_SECONDS)
-
-    raise RuntimeError("Failed to fetch PokéAPI data.")
 
 def get_default_variety_url(species_data: dict) -> str:
     """Return the PokeAPI URL for a species' default Pokemon variety."""
@@ -85,7 +29,7 @@ def get_english_name(species_data: dict) -> str:
     raise ValueError("Pokemon species does not contain an English name.")
 
 def get_resource_id(resource_url: str) -> int:
-    """Extract the numeric resource ID from a PokéAPI URL."""
+    """Extract the numeric resource ID from a PokeAPI URL."""
 
     return int(
         resource_url.rstrip("/").split("/")[-1]
@@ -131,7 +75,7 @@ def validate_pokedex(
     if actual_pokedex_numbers != expected_pokedex_numbers:
         raise ValueError(
             "Imported Pokedex numbers do not match "
-            "the discovered Pokédex numbers."
+            "the discovered Pokedex numbers."
         )
 
     for entry in pokemon:
