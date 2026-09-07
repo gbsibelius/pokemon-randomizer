@@ -1,0 +1,131 @@
+{
+    "2": {
+        "description": "Summons rain for 5 turns when the Pokemon enters battle. Lasts 8 turns if holding a Damp Rock."
+    },
+    "12": {
+        "description": "Prevents infatuation and Taunt, and makes the Pokemon unaffected by Intimidate."
+    },
+    "20": {
+        "description": "Prevents confusion and makes the Pokemon unaffected by Intimidate."
+    },
+    "21": {
+        "description": "Prevents the Pokemon from being forced out of battle by other Pokemon's moves or items."
+    },
+    "23": {
+        "description": "Prevents opposing Pokemon from fleeing or switching out. Does not affect Ghost-type Pokemon."
+    },
+    "26": {
+        "description": "Makes the Pokemon 'raised' being immune to Ground-type moves and unaffected by Spikes, Toxic Spikes, Sticky Web, and Arena Trap."
+    },
+    "27": {
+        "description": "Contact has a 30% chance to poison, paralyze, or put the attacker to sleep. Grass-type Pokemon, Pokemon with Overcoat, and Safety Goggles holders are immune."
+    },
+    "35": {
+        "description": "Prevents the Pokemon's accuracy from being lowered and ignores changes to the target's evasiveness."
+    },
+    "39": {
+        "description": "Prevents flinching and makes the Pokemon unaffected by Intimidate."
+    },
+    "42": {
+        "description": "Prevents opposing Steel-type Pokemon from fleeing or switching out. Does not trap Ghost-type Pokemon."
+    },
+    "45": {
+        "description": "Summons a sandstorm for 5 turns when the Pokemon enters battle. Lasts 8 turns if holding a Smooth Rock."
+    },
+    "46": {
+        "description": "Causes opponents to spend 1 additional PP when using moves against the Pokemon."
+    },
+    "51": {
+        "description": "Prevents the Pokemon's accuracy from being lowered and ignores changes to the target's evasiveness."
+    },
+    "56": {
+        "description": "Contact has a 30% chance to infatuate an attacker of the opposite gender."
+    },
+    "62": {
+        "description": "Increases Attack by 50% while affected by a major status condition and prevents burn from reducing physical damage."
+    },
+    "70": {
+        "description": "Summons harsh sunlight for 5 turns when the Pokemon enters battle. Lasts 8 turns if holding a Heat Rock."
+    },
+    "71": {
+        "description": "Prevents grounded opposing Pokemon from fleeing or switching out. Does not affect Ghost-type Pokemon."
+    },
+    "79": {
+        "description": "Boosts move power by 25% against targets of the same gender and lowers it by 25% against targets of the opposite gender. Has no effect if either Pokemon's gender is unknown."
+    },
+    "81": {
+        "description": "Boosts the Pokemon's evasiveness by 25% during snow."
+    },
+    "82": {
+        "description": "Causes Berries that normally activate at 1/4 max HP or less to activate at 1/2 max HP or less instead."
+    },
+    "86": {
+        "description": "Doubles the number of stat stages the Pokemon gains or loses from stat changes."
+    },
+    "92": {
+        "description": "Causes variable multi-hit moves to hit the maximum number of times."
+    },
+    "95": {
+        "description": "Boosts Speed by 50% while affected by a major status condition. Paralysis does not lower the Pokemon's Speed."
+    },
+    "96": {
+        "description": "Changes affected moves to Normal type and boosts their power by 20%."
+    },
+    "97": {
+        "description": "Boosts critical-hit damage by 50%, causing critical hits to deal 2.25x normal damage."
+    },
+    "107": {
+        "description": "Alerts the Pokemon upon entering battle if an opponent knows a super-effective damaging move or a one-hit KO move."
+    },
+    "113": {
+        "description": "Allows Normal-type and Fighting-type moves to hit Ghost-type Pokemon and makes the Pokemon unaffected by Intimidate."
+    },
+    "115": {
+        "description": "Restores 1/16 of the Pokemon's max HP at the end of each turn during snow."
+    },
+    "117": {
+        "description": "Summons snow for 5 turns when the Pokemon enters battle. Lasts 8 turns if holding an Icy Rock."
+    },
+    "119": {
+        "description": "Reveals the held items of opposing Pokemon when the Pokemon enters battle."
+    },
+    "120": {
+        "description": "Boosts the power of moves that cause recoil or crash damage by 20%."
+    },
+    "124": {
+        "description": "Steals an attacker's held item when hit by a contact move if the Pokemon is not already holding an item."
+    },
+    "128": {
+        "description": "Raises Attack by 2 stages when an opponent lowers any of the Pokemon's stats."
+    },
+    "130": {
+        "description": "When hit by a damaging move, has a 30% chance to Disable that move for 4 turns."
+    },
+    "133": {
+        "description": "When hit by a physical move, lowers Defense by 1 stage and raises Speed by 2 stages."
+    },
+    "137": {
+        "description": "Boosts the power of physical moves by 50% while the Pokemon is poisoned."
+    },
+    "138": {
+        "description": "Boosts the power of special moves by 50% while the Pokemon is burned."
+    },
+    "139": {
+        "description": "Has a 50% chance to restore a consumed Berry at the end of each turn. Always succeeds in harsh sunlight."
+    },
+    "141": {
+        "description": "At the end of each turn, raises a random Attack, Defense, Sp. Atk, Sp. Def, or Speed stat by 2 stages and lowers a different one by 1 stage."
+    },
+    "142": {
+        "description": "Prevents damage from sandstorms and protects the Pokemon from powder and spore moves and abilities."
+    },
+    "147": {
+        "description": "Reduces the accuracy of status moves used against the Pokemon to 50% if their accuracy would otherwise be higher."
+    },
+    "148": {
+        "description": "Boosts move power by 30% when the Pokemon moves after its target."
+    },
+    "150": {
+        "description": "Transforms into the opposing Pokemon it faces upon entering battle."
+    }
+}

@@ -1,0 +1,1258 @@
+{
+  "1": {
+    "name": "Stench",
+    "tier": "great_ball"
+  },
+  "2": {
+    "name": "Drizzle",
+    "tier": "master_ball"
+  },
+  "3": {
+    "name": "Speed Boost",
+    "tier": "master_ball"
+  },
+  "4": {
+    "name": "Battle Armor",
+    "tier": "great_ball"
+  },
+  "5": {
+    "name": "Sturdy",
+    "tier": "ultra_ball"
+  },
+  "6": {
+    "name": "Damp",
+    "tier": "poke_ball"
+  },
+  "7": {
+    "name": "Limber",
+    "tier": "great_ball"
+  },
+  "8": {
+    "name": "Sand Veil",
+    "tier": "ultra_ball"
+  },
+  "9": {
+    "name": "Static",
+    "tier": "great_ball"
+  },
+  "10": {
+    "name": "Volt Absorb",
+    "tier": "master_ball"
+  },
+  "11": {
+    "name": "Water Absorb",
+    "tier": "master_ball"
+  },
+  "12": {
+    "name": "Oblivious",
+    "tier": "great_ball"
+  },
+  "13": {
+    "name": "Cloud Nine",
+    "tier": "great_ball"
+  },
+  "14": {
+    "name": "Compound Eyes",
+    "tier": "ultra_ball"
+  },
+  "15": {
+    "name": "Insomnia",
+    "tier": "great_ball"
+  },
+  "16": {
+    "name": "Color Change",
+    "tier": "poke_ball"
+  },
+  "17": {
+    "name": "Immunity",
+    "tier": "great_ball"
+  },
+  "18": {
+    "name": "Flash Fire",
+    "tier": "master_ball"
+  },
+  "19": {
+    "name": "Shield Dust",
+    "tier": "great_ball"
+  },
+  "20": {
+    "name": "Own Tempo",
+    "tier": "great_ball"
+  },
+  "21": {
+    "name": "Suction Cups",
+    "tier": "great_ball"
+  },
+  "22": {
+    "name": "Intimidate",
+    "tier": "master_ball"
+  },
+  "23": {
+    "name": "Shadow Tag",
+    "tier": "master_ball"
+  },
+  "24": {
+    "name": "Rough Skin",
+    "tier": "ultra_ball"
+  },
+  "25": {
+    "name": "Wonder Guard",
+    "tier": "luxury_ball"
+  },
+  "26": {
+    "name": "Levitate",
+    "tier": "ultra_ball"
+  },
+  "27": {
+    "name": "Effect Spore",
+    "tier": "great_ball"
+  },
+  "28": {
+    "name": "Synchronize",
+    "tier": "great_ball"
+  },
+  "29": {
+    "name": "Clear Body",
+    "tier": "great_ball"
+  },
+  "30": {
+    "name": "Natural Cure",
+    "tier": "great_ball"
+  },
+  "31": {
+    "name": "Lightning Rod",
+    "tier": "master_ball"
+  },
+  "32": {
+    "name": "Serene Grace",
+    "tier": "ultra_ball"
+  },
+  "33": {
+    "name": "Swift Swim",
+    "tier": "ultra_ball"
+  },
+  "34": {
+    "name": "Chlorophyll",
+    "tier": "ultra_ball"
+  },
+  "35": {
+    "name": "Illuminate",
+    "tier": "great_ball"
+  },
+  "36": {
+    "name": "Trace",
+    "tier": "ultra_ball"
+  },
+  "37": {
+    "name": "Huge Power",
+    "tier": "luxury_ball"
+  },
+  "38": {
+    "name": "Poison Point",
+    "tier": "great_ball"
+  },
+  "39": {
+    "name": "Inner Focus",
+    "tier": "great_ball"
+  },
+  "40": {
+    "name": "Magma Armor",
+    "tier": "great_ball"
+  },
+  "41": {
+    "name": "Water Veil",
+    "tier": "great_ball"
+  },
+  "42": {
+    "name": "Magnet Pull",
+    "tier": "ultra_ball"
+  },
+  "43": {
+    "name": "Soundproof",
+    "tier": "great_ball"
+  },
+  "44": {
+    "name": "Rain Dish",
+    "tier": "great_ball"
+  },
+  "45": {
+    "name": "Sand Stream",
+    "tier": "master_ball"
+  },
+  "46": {
+    "name": "Pressure",
+    "tier": "poke_ball"
+  },
+  "47": {
+    "name": "Thick Fat",
+    "tier": "ultra_ball"
+  },
+  "48": {
+    "name": "Early Bird",
+    "tier": "great_ball"
+  },
+  "49": {
+    "name": "Flame Body",
+    "tier": "great_ball"
+  },
+  "50": {
+    "name": "Run Away",
+    "tier": "poke_ball"
+  },
+  "51": {
+    "name": "Keen Eye",
+    "tier": "great_ball"
+  },
+  "52": {
+    "name": "Hyper Cutter",
+    "tier": "great_ball"
+  },
+  "53": {
+    "name": "Pickup",
+    "tier": "poke_ball"
+  },
+  "54": {
+    "name": "Truant",
+    "tier": "poke_ball"
+  },
+  "55": {
+    "name": "Hustle",
+    "tier": "great_ball"
+  },
+  "56": {
+    "name": "Cute Charm",
+    "tier": "great_ball"
+  },
+  "57": {
+    "name": "Plus",
+    "tier": "poke_ball"
+  },
+  "58": {
+    "name": "Minus",
+    "tier": "poke_ball"
+  },
+  "59": {
+    "name": "Forecast",
+    "tier": "poke_ball"
+  },
+  "60": {
+    "name": "Sticky Hold",
+    "tier": "great_ball"
+  },
+  "61": {
+    "name": "Shed Skin",
+    "tier": "great_ball"
+  },
+  "62": {
+    "name": "Guts",
+    "tier": "master_ball"
+  },
+  "63": {
+    "name": "Marvel Scale",
+    "tier": "great_ball"
+  },
+  "64": {
+    "name": "Liquid Ooze",
+    "tier": "great_ball"
+  },
+  "65": {
+    "name": "Overgrow",
+    "tier": "great_ball"
+  },
+  "66": {
+    "name": "Blaze",
+    "tier": "great_ball"
+  },
+  "67": {
+    "name": "Torrent",
+    "tier": "great_ball"
+  },
+  "68": {
+    "name": "Swarm",
+    "tier": "great_ball"
+  },
+  "69": {
+    "name": "Rock Head",
+    "tier": "ultra_ball"
+  },
+  "70": {
+    "name": "Drought",
+    "tier": "master_ball"
+  },
+  "71": {
+    "name": "Arena Trap",
+    "tier": "master_ball"
+  },
+  "72": {
+    "name": "Vital Spirit",
+    "tier": "great_ball"
+  },
+  "73": {
+    "name": "White Smoke",
+    "tier": "great_ball"
+  },
+  "74": {
+    "name": "Pure Power",
+    "tier": "luxury_ball"
+  },
+  "75": {
+    "name": "Shell Armor",
+    "tier": "great_ball"
+  },
+  "76": {
+    "name": "Air Lock",
+    "tier": "great_ball"
+  },
+  "77": {
+    "name": "Tangled Feet",
+    "tier": "poke_ball"
+  },
+  "78": {
+    "name": "Motor Drive",
+    "tier": "master_ball"
+  },
+  "79": {
+    "name": "Rivalry",
+    "tier": "great_ball"
+  },
+  "80": {
+    "name": "Steadfast",
+    "tier": "great_ball"
+  },
+  "81": {
+    "name": "Snow Cloak",
+    "tier": "ultra_ball"
+  },
+  "82": {
+    "name": "Gluttony",
+    "tier": "great_ball"
+  },
+  "83": {
+    "name": "Anger Point",
+    "tier": "great_ball"
+  },
+  "84": {
+    "name": "Unburden",
+    "tier": "ultra_ball"
+  },
+  "85": {
+    "name": "Heatproof",
+    "tier": "great_ball"
+  },
+  "86": {
+    "name": "Simple",
+    "tier": "ultra_ball"
+  },
+  "87": {
+    "name": "Dry Skin",
+    "tier": "ultra_ball"
+  },
+  "88": {
+    "name": "Download",
+    "tier": "ultra_ball"
+  },
+  "89": {
+    "name": "Iron Fist",
+    "tier": "ultra_ball"
+  },
+  "90": {
+    "name": "Poison Heal",
+    "tier": "ultra_ball"
+  },
+  "91": {
+    "name": "Adaptability",
+    "tier": "master_ball"
+  },
+  "92": {
+    "name": "Skill Link",
+    "tier": "ultra_ball"
+  },
+  "93": {
+    "name": "Hydration",
+    "tier": "poke_ball"
+  },
+  "94": {
+    "name": "Solar Power",
+    "tier": "ultra_ball"
+  },
+  "95": {
+    "name": "Quick Feet",
+    "tier": "great_ball"
+  },
+  "96": {
+    "name": "Normalize",
+    "tier": "poke_ball"
+  },
+  "97": {
+    "name": "Sniper",
+    "tier": "great_ball"
+  },
+  "98": {
+    "name": "Magic Guard",
+    "tier": "master_ball"
+  },
+  "99": {
+    "name": "No Guard",
+    "tier": "ultra_ball"
+  },
+  "100": {
+    "name": "Stall",
+    "tier": "poke_ball"
+  },
+  "101": {
+    "name": "Technician",
+    "tier": "ultra_ball"
+  },
+  "102": {
+    "name": "Leaf Guard",
+    "tier": "poke_ball"
+  },
+  "103": {
+    "name": "Klutz",
+    "tier": "poke_ball"
+  },
+  "104": {
+    "name": "Mold Breaker",
+    "tier": "great_ball"
+  },
+  "105": {
+    "name": "Super Luck",
+    "tier": "great_ball"
+  },
+  "106": {
+    "name": "Aftermath",
+    "tier": "great_ball"
+  },
+  "107": {
+    "name": "Anticipation",
+    "tier": "great_ball"
+  },
+  "108": {
+    "name": "Forewarn",
+    "tier": "poke_ball"
+  },
+  "109": {
+    "name": "Unaware",
+    "tier": "ultra_ball"
+  },
+  "110": {
+    "name": "Tinted Lens",
+    "tier": "ultra_ball"
+  },
+  "111": {
+    "name": "Filter",
+    "tier": "great_ball"
+  },
+  "112": {
+    "name": "Slow Start",
+    "tier": "poke_ball"
+  },
+  "113": {
+    "name": "Scrappy",
+    "tier": "great_ball"
+  },
+  "114": {
+    "name": "Storm Drain",
+    "tier": "master_ball"
+  },
+  "115": {
+    "name": "Ice Body",
+    "tier": "great_ball"
+  },
+  "116": {
+    "name": "Solid Rock",
+    "tier": "great_ball"
+  },
+  "117": {
+    "name": "Snow Warning",
+    "tier": "master_ball"
+  },
+  "118": {
+    "name": "Honey Gather",
+    "tier": "poke_ball"
+  },
+  "119": {
+    "name": "Frisk",
+    "tier": "great_ball"
+  },
+  "120": {
+    "name": "Reckless",
+    "tier": "ultra_ball"
+  },
+  "121": {
+    "name": "Multitype",
+    "tier": "poke_ball"
+  },
+  "122": {
+    "name": "Flower Gift",
+    "tier": "poke_ball"
+  },
+  "123": {
+    "name": "Bad Dreams",
+    "tier": "great_ball"
+  },
+  "124": {
+    "name": "Pickpocket",
+    "tier": "poke_ball"
+  },
+  "125": {
+    "name": "Sheer Force",
+    "tier": "master_ball"
+  },
+  "126": {
+    "name": "Contrary",
+    "tier": "ultra_ball"
+  },
+  "127": {
+    "name": "Unnerve",
+    "tier": "great_ball"
+  },
+  "128": {
+    "name": "Defiant",
+    "tier": "great_ball"
+  },
+  "129": {
+    "name": "Defeatist",
+    "tier": "poke_ball"
+  },
+  "130": {
+    "name": "Cursed Body",
+    "tier": "ultra_ball"
+  },
+  "131": {
+    "name": "Healer",
+    "tier": "poke_ball"
+  },
+  "132": {
+    "name": "Friend Guard",
+    "tier": "poke_ball"
+  },
+  "133": {
+    "name": "Weak Armor",
+    "tier": "great_ball"
+  },
+  "134": {
+    "name": "Heavy Metal",
+    "tier": "poke_ball"
+  },
+  "135": {
+    "name": "Light Metal",
+    "tier": "poke_ball"
+  },
+  "136": {
+    "name": "Multiscale",
+    "tier": "master_ball"
+  },
+  "137": {
+    "name": "Toxic Boost",
+    "tier": "ultra_ball"
+  },
+  "138": {
+    "name": "Flare Boost",
+    "tier": "ultra_ball"
+  },
+  "139": {
+    "name": "Harvest",
+    "tier": "great_ball"
+  },
+  "140": {
+    "name": "Telepathy",
+    "tier": "poke_ball"
+  },
+  "141": {
+    "name": "Moody",
+    "tier": "luxury_ball"
+  },
+  "142": {
+    "name": "Overcoat",
+    "tier": "great_ball"
+  },
+  "143": {
+    "name": "Poison Touch",
+    "tier": "great_ball"
+  },
+  "144": {
+    "name": "Regenerator",
+    "tier": "ultra_ball"
+  },
+  "145": {
+    "name": "Big Pecks",
+    "tier": "great_ball"
+  },
+  "146": {
+    "name": "Sand Rush",
+    "tier": "ultra_ball"
+  },
+  "147": {
+    "name": "Wonder Skin",
+    "tier": "great_ball"
+  },
+  "148": {
+    "name": "Analytic",
+    "tier": "ultra_ball"
+  },
+  "149": {
+    "name": "Illusion",
+    "tier": "ultra_ball"
+  },
+  "150": {
+    "name": "Imposter",
+    "tier": "ultra_ball"
+  },
+  "151": {
+    "name": "Infiltrator",
+    "tier": "unassigned"
+  },
+  "152": {
+    "name": "Mummy",
+    "tier": "unassigned"
+  },
+  "153": {
+    "name": "Moxie",
+    "tier": "unassigned"
+  },
+  "154": {
+    "name": "Justified",
+    "tier": "unassigned"
+  },
+  "155": {
+    "name": "Rattled",
+    "tier": "unassigned"
+  },
+  "156": {
+    "name": "Magic Bounce",
+    "tier": "unassigned"
+  },
+  "157": {
+    "name": "Sap Sipper",
+    "tier": "unassigned"
+  },
+  "158": {
+    "name": "Prankster",
+    "tier": "unassigned"
+  },
+  "159": {
+    "name": "Sand Force",
+    "tier": "unassigned"
+  },
+  "160": {
+    "name": "Iron Barbs",
+    "tier": "unassigned"
+  },
+  "161": {
+    "name": "Zen Mode",
+    "tier": "unassigned"
+  },
+  "162": {
+    "name": "Victory Star",
+    "tier": "unassigned"
+  },
+  "163": {
+    "name": "Turboblaze",
+    "tier": "unassigned"
+  },
+  "164": {
+    "name": "Teravolt",
+    "tier": "unassigned"
+  },
+  "165": {
+    "name": "Aroma Veil",
+    "tier": "unassigned"
+  },
+  "166": {
+    "name": "Flower Veil",
+    "tier": "unassigned"
+  },
+  "167": {
+    "name": "Cheek Pouch",
+    "tier": "unassigned"
+  },
+  "168": {
+    "name": "Protean",
+    "tier": "unassigned"
+  },
+  "169": {
+    "name": "Fur Coat",
+    "tier": "unassigned"
+  },
+  "170": {
+    "name": "Magician",
+    "tier": "unassigned"
+  },
+  "171": {
+    "name": "Bulletproof",
+    "tier": "unassigned"
+  },
+  "172": {
+    "name": "Competitive",
+    "tier": "unassigned"
+  },
+  "173": {
+    "name": "Strong Jaw",
+    "tier": "unassigned"
+  },
+  "174": {
+    "name": "Refrigerate",
+    "tier": "unassigned"
+  },
+  "175": {
+    "name": "Sweet Veil",
+    "tier": "unassigned"
+  },
+  "176": {
+    "name": "Stance Change",
+    "tier": "unassigned"
+  },
+  "177": {
+    "name": "Gale Wings",
+    "tier": "unassigned"
+  },
+  "178": {
+    "name": "Mega Launcher",
+    "tier": "unassigned"
+  },
+  "179": {
+    "name": "Grass Pelt",
+    "tier": "unassigned"
+  },
+  "180": {
+    "name": "Symbiosis",
+    "tier": "unassigned"
+  },
+  "181": {
+    "name": "Tough Claws",
+    "tier": "unassigned"
+  },
+  "182": {
+    "name": "Pixilate",
+    "tier": "unassigned"
+  },
+  "183": {
+    "name": "Gooey",
+    "tier": "unassigned"
+  },
+  "184": {
+    "name": "Aerilate",
+    "tier": "unassigned"
+  },
+  "185": {
+    "name": "Parental Bond",
+    "tier": "unassigned"
+  },
+  "186": {
+    "name": "Dark Aura",
+    "tier": "unassigned"
+  },
+  "187": {
+    "name": "Fairy Aura",
+    "tier": "unassigned"
+  },
+  "188": {
+    "name": "Aura Break",
+    "tier": "unassigned"
+  },
+  "189": {
+    "name": "Primordial Sea",
+    "tier": "unassigned"
+  },
+  "190": {
+    "name": "Desolate Land",
+    "tier": "unassigned"
+  },
+  "191": {
+    "name": "Delta Stream",
+    "tier": "unassigned"
+  },
+  "192": {
+    "name": "Stamina",
+    "tier": "unassigned"
+  },
+  "193": {
+    "name": "Wimp Out",
+    "tier": "unassigned"
+  },
+  "194": {
+    "name": "Emergency Exit",
+    "tier": "unassigned"
+  },
+  "195": {
+    "name": "Water Compaction",
+    "tier": "unassigned"
+  },
+  "196": {
+    "name": "Merciless",
+    "tier": "unassigned"
+  },
+  "197": {
+    "name": "Shields Down",
+    "tier": "unassigned"
+  },
+  "198": {
+    "name": "Stakeout",
+    "tier": "unassigned"
+  },
+  "199": {
+    "name": "Water Bubble",
+    "tier": "unassigned"
+  },
+  "200": {
+    "name": "Steelworker",
+    "tier": "unassigned"
+  },
+  "201": {
+    "name": "Berserk",
+    "tier": "unassigned"
+  },
+  "202": {
+    "name": "Slush Rush",
+    "tier": "unassigned"
+  },
+  "203": {
+    "name": "Long Reach",
+    "tier": "unassigned"
+  },
+  "204": {
+    "name": "Liquid Voice",
+    "tier": "unassigned"
+  },
+  "205": {
+    "name": "Triage",
+    "tier": "unassigned"
+  },
+  "206": {
+    "name": "Galvanize",
+    "tier": "unassigned"
+  },
+  "207": {
+    "name": "Surge Surfer",
+    "tier": "unassigned"
+  },
+  "208": {
+    "name": "Schooling",
+    "tier": "unassigned"
+  },
+  "209": {
+    "name": "Disguise",
+    "tier": "unassigned"
+  },
+  "210": {
+    "name": "Battle Bond",
+    "tier": "unassigned"
+  },
+  "211": {
+    "name": "Power Construct",
+    "tier": "unassigned"
+  },
+  "212": {
+    "name": "Corrosion",
+    "tier": "unassigned"
+  },
+  "213": {
+    "name": "Comatose",
+    "tier": "unassigned"
+  },
+  "214": {
+    "name": "Queenly Majesty",
+    "tier": "unassigned"
+  },
+  "215": {
+    "name": "Innards Out",
+    "tier": "unassigned"
+  },
+  "216": {
+    "name": "Dancer",
+    "tier": "unassigned"
+  },
+  "217": {
+    "name": "Battery",
+    "tier": "unassigned"
+  },
+  "218": {
+    "name": "Fluffy",
+    "tier": "unassigned"
+  },
+  "219": {
+    "name": "Dazzling",
+    "tier": "unassigned"
+  },
+  "220": {
+    "name": "Soul-Heart",
+    "tier": "unassigned"
+  },
+  "221": {
+    "name": "Tangling Hair",
+    "tier": "unassigned"
+  },
+  "222": {
+    "name": "Receiver",
+    "tier": "unassigned"
+  },
+  "223": {
+    "name": "Power of Alchemy",
+    "tier": "unassigned"
+  },
+  "224": {
+    "name": "Beast Boost",
+    "tier": "unassigned"
+  },
+  "225": {
+    "name": "RKS System",
+    "tier": "unassigned"
+  },
+  "226": {
+    "name": "Electric Surge",
+    "tier": "unassigned"
+  },
+  "227": {
+    "name": "Psychic Surge",
+    "tier": "unassigned"
+  },
+  "228": {
+    "name": "Misty Surge",
+    "tier": "unassigned"
+  },
+  "229": {
+    "name": "Grassy Surge",
+    "tier": "unassigned"
+  },
+  "230": {
+    "name": "Full Metal Body",
+    "tier": "unassigned"
+  },
+  "231": {
+    "name": "Shadow Shield",
+    "tier": "unassigned"
+  },
+  "232": {
+    "name": "Prism Armor",
+    "tier": "unassigned"
+  },
+  "233": {
+    "name": "Neuroforce",
+    "tier": "unassigned"
+  },
+  "234": {
+    "name": "Intrepid Sword",
+    "tier": "unassigned"
+  },
+  "235": {
+    "name": "Dauntless Shield",
+    "tier": "unassigned"
+  },
+  "236": {
+    "name": "Libero",
+    "tier": "unassigned"
+  },
+  "237": {
+    "name": "Ball Fetch",
+    "tier": "unassigned"
+  },
+  "238": {
+    "name": "Cotton Down",
+    "tier": "unassigned"
+  },
+  "239": {
+    "name": "Propeller Tail",
+    "tier": "unassigned"
+  },
+  "240": {
+    "name": "Mirror Armor",
+    "tier": "unassigned"
+  },
+  "241": {
+    "name": "Gulp Missile",
+    "tier": "unassigned"
+  },
+  "242": {
+    "name": "Stalwart",
+    "tier": "unassigned"
+  },
+  "243": {
+    "name": "Steam Engine",
+    "tier": "unassigned"
+  },
+  "244": {
+    "name": "Punk Rock",
+    "tier": "unassigned"
+  },
+  "245": {
+    "name": "Sand Spit",
+    "tier": "unassigned"
+  },
+  "246": {
+    "name": "Ice Scales",
+    "tier": "unassigned"
+  },
+  "247": {
+    "name": "Ripen",
+    "tier": "unassigned"
+  },
+  "248": {
+    "name": "Ice Face",
+    "tier": "unassigned"
+  },
+  "249": {
+    "name": "Power Spot",
+    "tier": "unassigned"
+  },
+  "250": {
+    "name": "Mimicry",
+    "tier": "unassigned"
+  },
+  "251": {
+    "name": "Screen Cleaner",
+    "tier": "unassigned"
+  },
+  "252": {
+    "name": "Steely Spirit",
+    "tier": "unassigned"
+  },
+  "253": {
+    "name": "Perish Body",
+    "tier": "unassigned"
+  },
+  "254": {
+    "name": "Wandering Spirit",
+    "tier": "unassigned"
+  },
+  "255": {
+    "name": "Gorilla Tactics",
+    "tier": "unassigned"
+  },
+  "256": {
+    "name": "Neutralizing Gas",
+    "tier": "unassigned"
+  },
+  "257": {
+    "name": "Pastel Veil",
+    "tier": "unassigned"
+  },
+  "258": {
+    "name": "Hunger Switch",
+    "tier": "unassigned"
+  },
+  "259": {
+    "name": "Quick Draw",
+    "tier": "unassigned"
+  },
+  "260": {
+    "name": "Unseen Fist",
+    "tier": "unassigned"
+  },
+  "261": {
+    "name": "Curious Medicine",
+    "tier": "unassigned"
+  },
+  "262": {
+    "name": "Transistor",
+    "tier": "unassigned"
+  },
+  "263": {
+    "name": "Dragon’s Maw",
+    "tier": "unassigned"
+  },
+  "264": {
+    "name": "Chilling Neigh",
+    "tier": "unassigned"
+  },
+  "265": {
+    "name": "Grim Neigh",
+    "tier": "unassigned"
+  },
+  "266": {
+    "name": "As One",
+    "tier": "unassigned"
+  },
+  "267": {
+    "name": "As One",
+    "tier": "unassigned"
+  },
+  "268": {
+    "name": "Lingering Aroma",
+    "tier": "unassigned"
+  },
+  "269": {
+    "name": "Seed Sower",
+    "tier": "unassigned"
+  },
+  "270": {
+    "name": "Thermal Exchange",
+    "tier": "unassigned"
+  },
+  "271": {
+    "name": "Anger Shell",
+    "tier": "unassigned"
+  },
+  "272": {
+    "name": "Purifying Salt",
+    "tier": "unassigned"
+  },
+  "273": {
+    "name": "Well-Baked Body",
+    "tier": "unassigned"
+  },
+  "274": {
+    "name": "Wind Rider",
+    "tier": "unassigned"
+  },
+  "275": {
+    "name": "Guard Dog",
+    "tier": "unassigned"
+  },
+  "276": {
+    "name": "Rocky Payload",
+    "tier": "unassigned"
+  },
+  "277": {
+    "name": "Wind Power",
+    "tier": "unassigned"
+  },
+  "278": {
+    "name": "Zero to Hero",
+    "tier": "unassigned"
+  },
+  "279": {
+    "name": "Commander",
+    "tier": "unassigned"
+  },
+  "280": {
+    "name": "Electromorphosis",
+    "tier": "unassigned"
+  },
+  "281": {
+    "name": "Protosynthesis",
+    "tier": "unassigned"
+  },
+  "282": {
+    "name": "Quark Drive",
+    "tier": "unassigned"
+  },
+  "283": {
+    "name": "Good as Gold",
+    "tier": "unassigned"
+  },
+  "284": {
+    "name": "Vessel of Ruin",
+    "tier": "unassigned"
+  },
+  "285": {
+    "name": "Sword of Ruin",
+    "tier": "unassigned"
+  },
+  "286": {
+    "name": "Tablets of Ruin",
+    "tier": "unassigned"
+  },
+  "287": {
+    "name": "Beads of Ruin",
+    "tier": "unassigned"
+  },
+  "288": {
+    "name": "Orichalcum Pulse",
+    "tier": "unassigned"
+  },
+  "289": {
+    "name": "Hadron Engine",
+    "tier": "unassigned"
+  },
+  "290": {
+    "name": "Opportunist",
+    "tier": "unassigned"
+  },
+  "291": {
+    "name": "Cud Chew",
+    "tier": "unassigned"
+  },
+  "292": {
+    "name": "Sharpness",
+    "tier": "unassigned"
+  },
+  "293": {
+    "name": "Supreme Overlord",
+    "tier": "unassigned"
+  },
+  "294": {
+    "name": "Costar",
+    "tier": "unassigned"
+  },
+  "295": {
+    "name": "Toxic Debris",
+    "tier": "unassigned"
+  },
+  "296": {
+    "name": "Armor Tail",
+    "tier": "unassigned"
+  },
+  "297": {
+    "name": "Earth Eater",
+    "tier": "unassigned"
+  },
+  "298": {
+    "name": "Mycelium Might",
+    "tier": "unassigned"
+  },
+  "299": {
+    "name": "Mind’s Eye",
+    "tier": "unassigned"
+  },
+  "300": {
+    "name": "Supersweet Syrup",
+    "tier": "unassigned"
+  },
+  "301": {
+    "name": "Hospitality",
+    "tier": "unassigned"
+  },
+  "302": {
+    "name": "Toxic Chain",
+    "tier": "unassigned"
+  },
+  "303": {
+    "name": "Embody Aspect",
+    "tier": "unassigned"
+  },
+  "304": {
+    "name": "Tera Shift",
+    "tier": "unassigned"
+  },
+  "305": {
+    "name": "Tera Shell",
+    "tier": "unassigned"
+  },
+  "306": {
+    "name": "Teraform Zero",
+    "tier": "unassigned"
+  },
+  "307": {
+    "name": "Poison Puppeteer",
+    "tier": "unassigned"
+  },
+  "308": {
+    "name": "Piercing Drill",
+    "tier": "unassigned"
+  },
+  "309": {
+    "name": "Dragonize",
+    "tier": "unassigned"
+  },
+  "310": {
+    "name": "Mega Sol",
+    "tier": "unassigned"
+  },
+  "311": {
+    "name": "Spicy Spray",
+    "tier": "unassigned"
+  },
+  "312": {
+    "name": "Eelevate",
+    "tier": "unassigned"
+  },
+  "313": {
+    "name": "Fire Mane",
+    "tier": "unassigned"
+  },
+  "314": {
+    "name": "Aura Guard",
+    "tier": "unassigned"
+  }
+}

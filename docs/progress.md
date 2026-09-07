@@ -1142,3 +1142,38 @@ Known items to review:
 - Keep curated tier data separate from imported PokeAPI data.
 - Once the dataset is reviewed, promote it to `abilities.json`.
 - Begin implementing two-step tier-weighted randomization.
+
+
+### Session 20 - Ability Data Curation, Part 1
+
+- Completed ability loader and override pipeline validation.
+  - Added default real-data loading coverage.
+  - Test suite reached 52 passing tests.
+- Began manual Ability Randomizer data curation.
+- Audited modern battle mechanics for abilities 1-150.
+- Assigned custom Pokeball strength tiers to abilities 1-150.
+- Refined tiering guidelines:
+  - Poke Ball: negligible, highly situational, or detrimental abilities.
+  - Great Ball: modest but useful abilities.
+  - Ultra Ball: strong abilities with meaningful conditions or dependencies.
+  - Master Ball: broadly powerful and easy-to-use abilities.
+  - Luxury Ball: potentially battle-warping abilities.
+- Reviewed tier consistency at abilities 100 and 150.
+- Standardized the 30% contact-effect ability family primarily into Great Ball.
+- Added modern-mechanics corrections and clarifications to
+  `data/ability_overrides.json`.
+- Decided to keep generated PokeAPI ability data separate from manual
+  description corrections and tier classifications.
+- Deferred final description-format normalization until the curated dataset
+  is complete:
+  - Prefer percentages for relative increases/decreases.
+  - Prefer multipliers when expressing clearer final values such as 2x or 2.25x.
+- Current curation checkpoint:
+  - Abilities 1-150 complete.
+  - Ability 151 (`Infiltrator`) is the next unassigned ability.
+
+Next:
+- Continue mechanics audit and tiering from abilities 151-314.
+- Perform a final global tier consistency review.
+- Review tier pool sizes and choose weighted tier-roll probabilities.
+- Normalize descriptions and promote the curated dataset for runtime use.
