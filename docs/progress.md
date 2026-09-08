@@ -1144,7 +1144,7 @@ Known items to review:
 - Begin implementing two-step tier-weighted randomization.
 
 
-### Session 20 - Ability Data Curation, Part 1
+### Session 20 - September 7, 2026
 
 - Completed ability loader and override pipeline validation.
   - Added default real-data loading coverage.
@@ -1177,3 +1177,29 @@ Next:
 - Perform a final global tier consistency review.
 - Review tier pool sizes and choose weighted tier-roll probabilities.
 - Normalize descriptions and promote the curated dataset for runtime use.
+
+
+### Session 21 - September 8, 2026
+
+- Continued Ability Randomizer data curation from ability 151.
+- Completed modern-mechanics audit through all 314 imported abilities.
+- Added recommended corrections and clarifications for outdated or incomplete
+  PokeAPI ability descriptions.
+- Completed initial tier assignments for the full 314-ability dataset.
+- Performed a full-dataset tier consistency review.
+- Reviewed equivalent and related ability families for consistent tiering.
+- Revisited several borderline Great/Ultra, Ultra/Master, and Master/Luxury
+  placements.
+- Identified Champions-era abilities as a separate availability concern rather
+  than a strength-tier concern.
+  - Consider excluding Champions-only abilities from the current randomizer
+    pool while retaining them in imported source data.
+- Made additional final tier adjustments following the review.
+
+Next:
+- Load the latest locally updated tier and override files.
+- Clean and consolidate `ability_overrides.json`.
+- Normalize ability-description wording and numeric formatting.
+- Decide how game/Champions availability should be represented.
+- Validate the completed curated dataset.
+- Begin weighted tier-selection/randomizer implementation.

@@ -127,5 +127,224 @@
     },
     "150": {
         "description": "Transforms into the opposing Pokemon it faces upon entering battle."
+    },
+    "151": {
+        "description": "Allows the Pokemon's moves to bypass Reflect, Light Screen, Aurora Veil, Safeguard, and Substitute."
+    },
+    "155": {
+        "description": "Raises Speed by 1 stage when hit by a Dark-type, Ghost-type, or Bug-type move, or when affected by Intimidate."
+    },
+    "158": {
+        "description": "Raises the priority of status moves by 1. Opposing Dark-type Pokemon are immune to moves given priority by this ability."
+    },
+    "166": {
+        "description": "Protects the Pokemon, if Grass-type, and its Grass-type allies from major status conditions and stat reductions caused by other Pokemon."
+    },
+    "167": {
+        "description": "Restores 1/3 of the Pokemon's max HP when it eats a Berry, in addition to the Berry's normal effect."
+    },
+    "168": {
+        "description": "Changes the Pokemon's type to match the move it is about to use. Activates only once each time the Pokemon enters battle."
+    },
+    "170": {
+        "description": "Steals the target's held item when the Pokemon deals damage with a move, if the Pokemon is not already holding an item."
+    },
+    "172": {
+        "description": "Raises Special Attack by 2 stages whenever an opponent lowers one of the Pokemon's stats."
+    },
+    "174": {
+        "description": "Changes Normal-type moves to Ice type and boosts their power by 20%."
+    },
+    "175": {
+        "description": "Prevents the Pokemon and its allies from becoming drowsy or falling asleep."
+    },
+    "177": {
+        "description": "Raises the priority of Flying-type moves by 1 while the Pokemon is at full HP."
+    },
+    "179": {
+        "description": "Boosts Defense by 50% while Grassy Terrain is active."
+    },
+    "181": {
+        "description": "Boosts the power of moves that make contact by 30%."
+    },
+    "182": {
+        "description": "Changes Normal-type moves to Fairy type and boosts their power by 20%."
+    },
+    "184": {
+        "description": "Changes Normal-type moves to Flying type and boosts their power by 20%."
+    },
+    "185": {
+        "description": "Causes most damaging moves to hit twice, with the second hit dealing 25% of normal damage."
+    },
+    "188": {
+        "description": "Reverses Dark Aura and Fairy Aura, causing affected moves to lose 25% power instead of gaining power."
+    },
+    "189": {
+        "description": "Creates heavy rain while active. Ordinary weather cannot replace it, and damaging Fire-type moves fail."
+    },
+    "190": {
+        "description": "Creates extremely harsh sunlight while active. Ordinary weather cannot replace it, and damaging Water-type moves fail."
+    },
+    "191": {
+        "description": "Creates strong winds while active that remove the Flying type's weaknesses. Ordinary weather cannot replace it."
+    },
+    "201": {
+        "description": "Raises Special Attack by 1 stage when a damaging move causes the Pokemon's HP to drop to 1/2 or less."
+    },
+    "202": {
+        "description": "Doubles the Pokemon's Speed during snow."
+    },
+    "209": {
+        "description": "Once per battle, blocks the damage from a move while in Disguised Form, then causes the Pokemon to lose 1/8 of its max HP."
+    },
+    "210": {
+        "description": "Raises Attack, Special Attack, and Speed by 1 stage after the Pokemon directly causes another Pokemon to faint with a damaging move. Activates once per battle."
+    },
+    "213": {
+        "description": "The Pokemon is treated as asleep but can still act normally and cannot be afflicted with another major status condition."
+    },
+    "217": {
+        "description": "Boosts the power of allies' special moves by 30%."
+    },
+    "226": {
+        "description": "Creates Electric Terrain for 5 turns when the Pokemon enters battle."
+    },
+    "227": {
+        "description": "Creates Psychic Terrain for 5 turns when the Pokemon enters battle."
+    },
+    "228": {
+        "description": "Creates Misty Terrain for 5 turns when the Pokemon enters battle."
+    },
+    "229": {
+        "description": "Creates Grassy Terrain for 5 turns when the Pokemon enters battle."
+    },
+    "230": {
+        "description": "Prevents other Pokemon from lowering the Pokemon's stats. This effect cannot be ignored by moves or abilities."
+    },
+    "231": {
+        "description": "Halves damage from damaging moves while the Pokemon is at full HP. This effect cannot be ignored by moves or abilities."
+    },
+    "232": {
+        "description": "Reduces damage from super-effective moves by 25%. This effect cannot be ignored by moves or abilities."
+    },
+    "234": {
+        "description": "Raises Attack by 1 stage the first time the Pokemon enters battle. Activates once per battle."
+    },
+    "235": {
+        "description": "Raises Defense by 1 stage the first time the Pokemon enters battle. Activates once per battle."
+    },
+    "236": {
+        "description": "Changes the Pokemon's type to match the move it is about to use. Activates only once each time the Pokemon enters battle."
+    },
+    "238": {
+        "description": "When hit by a damaging move, lowers the Speed of every other Pokemon by 1 stage."
+    },
+    "243": {
+        "description": "Raises Speed by 6 stages when the Pokemon is hit by a Fire- or Water-type move."
+    },
+    "244": {
+        "description": "Boosts the power of sound-based moves by 30% and halves damage taken from sound-based moves."
+    },
+    "245": {
+        "description": "Creates a sandstorm for 5 turns when the Pokemon is hit by a damaging move. Lasts 8 turns if holding a Smooth Rock."
+    },
+    "249": {
+        "description": "Boosts the power of allies' moves by 30%."
+    },
+    "251": {
+        "description": "When the Pokemon enters battle, removes Reflect, Light Screen, and Aurora Veil from both sides of the field."
+    },
+    "252": {
+        "description": "Boosts the power of Steel-type moves used by the Pokemon and its allies by 50%."
+    },
+    "255": {
+        "description": "Boosts Attack by 50%, but locks the Pokemon into the first move it selects until it leaves battle."
+    },
+    "257": {
+        "description": "Prevents the Pokemon and its allies from being poisoned and cures poisoned allies when the Pokemon enters battle."
+    },
+    "259": {
+        "description": "Damaging moves have a 30% chance to move first within their priority bracket."
+    },
+    "260": {
+        "description": "Contact moves can hit targets through protective effects, dealing 25% of their normal damage."
+    },
+    "261": {
+        "description": "When the Pokemon enters battle, resets all stat changes of its allies."
+    },
+    "262": {
+        "description": "Boosts the power of Electric-type moves by 30%."
+    },
+    "263": {
+        "description": "Boosts the power of Dragon-type moves by 50%."
+    },
+    "266": {
+        "name": "As One (Atk)"
+    },
+    "267": {
+        "name": "As One (Sp. Atk)"
+    },
+    "269": {
+        "description": "Creates Grassy Terrain for 5 turns when the Pokemon is hit by a damaging move. Lasts 8 turns if holding a Terrain Extender."
+    },
+    "270": {
+        "description": "Raises Attack by 1 stage when hit by a Fire-type damaging move and prevents the Pokemon from being burned."
+    },
+    "271": {
+        "description": "When an opponent's attack causes HP to fall from above half to half or less, raises Attack, Special Attack, and Speed by 1 stage and lowers Defense and Special Defense by 1 stage."
+    },
+    "273": {
+        "description": "Makes the Pokemon immune to Fire-type moves and raises Defense by 2 stages when hit by one."
+    },
+    "274": {
+        "description": "Makes the Pokemon immune to wind moves and raises Attack by 1 stage when hit by one or when Tailwind takes effect on its side."
+    },
+    "275": {
+        "description": "Raises Attack by 1 stage instead of lowering it when affected by Intimidate and prevents opponents from forcing the Pokemon to switch out."
+    },
+    "276": {
+        "description": "Boosts the power of Rock-type moves by 50%."
+    },
+    "281": {
+        "description": "In harsh sunlight or after using Booster Energy, boosts the Pokemon's highest stat by 30%, or Speed by 50% if Speed is highest."
+    },
+    "282": {
+        "description": "On Electric Terrain or after using Booster Energy, boosts the Pokemon's highest stat by 30%, or Speed by 50% if Speed is highest."
+    },
+    "284": {
+        "description": "Lowers the Special Attack of all other Pokemon on the field by 25%."
+    },
+    "285": {
+        "description": "Lowers the Defense of all other Pokemon on the field by 25%."
+    },
+    "286": {
+        "description": "Lowers the Attack of all other Pokemon on the field by 25%."
+    },
+    "287": {
+        "description": "Lowers the Special Defense of all other Pokemon on the field by 25%."
+    },
+    "288": {
+        "description": "Creates harsh sunlight for 5 turns when the Pokemon enters battle and boosts its Attack by about 33% while harsh sunlight is active."
+    },
+    "289": {
+        "description": "Creates Electric Terrain for 5 turns when the Pokemon enters battle and boosts its Special Attack by about 33% while Electric Terrain is active."
+    },
+    "292": {
+        "description": "Boosts the power of slicing moves by 50%."
+    },
+    "293": {
+        "description": "Boosts move power by 10% for each defeated Pokemon in the user's party, up to a maximum boost of 50%."
+    },
+    "297": {
+        "description": "Makes the Pokemon immune to Ground-type moves and restores 1/4 of its max HP when hit by one."
+    },
+    "302": {
+        "description": "Non-status moves have a 30% chance to badly poison each target they hit."
+    },
+    "303": {
+        "description": "When Ogerpon Terastallizes, raises Speed with the Teal Mask, Special Defense with Wellspring, Attack with Hearthflame, or Defense with Cornerstone by 1 stage."
+    },
+    "308": {
+        "description": "Contact moves can hit targets through protective effects, dealing 25% of their normal damage."
     }
 }
